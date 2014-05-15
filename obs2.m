@@ -1,4 +1,4 @@
-function obs1(block)
+function obs2(block)
 
   setup(block);
 
@@ -6,7 +6,7 @@ function setup(block)
 %% ===============================================================
 %  Definiera parametrar för residualgeneratorn 
 %  ===============================================================
-  numstates = 1; % Antal kontinuerliga tillstånd i funktionen
+  numstates = 2; % Antal kontinuerliga tillstånd i funktionen
 %  ===============================================================
 
   numparams = 1;
@@ -54,10 +54,10 @@ function InitConditions(block)
 %  Definiera utsignalsekvationen
 %  ===============================================================
 function Output(block)
-  x1hat = block.ContStates.Data;
-  y1    = block.InputPort(1).Data(2);
+  x2hat = block.ContStates.Data(2);
+  y2    = block.InputPort(1).Data(3);
 
-  r     = y1-x1hat;
+  r     = y2-x2hat;
   block.OutputPort(1).Data = r;
   
 %endfunction
@@ -66,13 +66,15 @@ function Output(block)
 %  Definiera de dynamiska ekvationerna
 %  ===============================================================
 function Derivative(block)
-K1 = block.DialogPrm(1).Data.K;
+K2 = block.DialogPrm(1).Data.K;
 d  = block.DialogPrm(1).Data.d;
 
 u     = block.InputPort(1).Data(1);
-y1    = block.InputPort(1).Data(2);
-x1hat = block.ContStates.Data;
+y2    = block.InputPort(1).Data(3);
+x1hat = block.ContStates.Data(1);
+x2hat = block.ContStates.Data(2);
 
-dx1hat = d(1)*u-d(2)*sqrt(x1hat)+K1*(y1-x1hat);
+dx1hat = d(1)*u-d(2)*sqrt(x1hat)+K2(1)*(y2-x2hat);
+dx2hat = d(3)*sqrt(x1hat)-d(4)*sqrt(x2hat)+K2(2)*(y2-x2hat);
 
-block.Derivatives.Data = dx1hat;
+block.Derivatives.Data = [dx1hat dx2hat];

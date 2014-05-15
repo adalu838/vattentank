@@ -1,4 +1,4 @@
-function obs1(block)
+function obs3(block)
 
   setup(block);
 
@@ -55,9 +55,10 @@ function InitConditions(block)
 %  ===============================================================
 function Output(block)
   x1hat = block.ContStates.Data;
-  y1    = block.InputPort(1).Data(2);
+  y3    = block.InputPort(1).Data(4);
+  d     = block.DialogPrm(1).Data.d;
 
-  r     = y1-x1hat;
+  r     = y3-d(5)*sqrt(x1hat);
   block.OutputPort(1).Data = r;
   
 %endfunction
@@ -66,13 +67,13 @@ function Output(block)
 %  Definiera de dynamiska ekvationerna
 %  ===============================================================
 function Derivative(block)
-K1 = block.DialogPrm(1).Data.K;
+K3 = block.DialogPrm(1).Data.K;
 d  = block.DialogPrm(1).Data.d;
 
 u     = block.InputPort(1).Data(1);
-y1    = block.InputPort(1).Data(2);
+y3    = block.InputPort(1).Data(4);
 x1hat = block.ContStates.Data;
 
-dx1hat = d(1)*u-d(2)*sqrt(x1hat)+K1*(y1-x1hat);
+dx1hat = d(1)*u-d(2)*sqrt(x1hat)+K3*(y3-d(5)*sqrt(x1hat));
 
 block.Derivatives.Data = dx1hat;

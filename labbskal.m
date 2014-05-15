@@ -27,23 +27,64 @@ NoiseSeed = floor(abs(randn(1,4)*100));
 NoiseCov  = 1e-4*[5 0.25 0.5 0.5];
 
 %% ==================================================
-%  Design av residualgenerator 'obs1'
+%  Design av residualgenerator
 %  via observatörsdesign
 %  ==================================================
 
 % Linjärisering av vattentankssystemet för h1=4:
 Gsys=tanklinj(4, d);
+
+%% obs1
 % Anpassa A och C-matrisen så att de passar
-A  = Gsys.a(1,1);
-C  = Gsys.c(1,1);
+A1  = Gsys.a(1,1);
+C1  = Gsys.c(1,1);
 
-P  = [-1]; % Placering av polerna
-K1 = obsgain(A,C,P);
+P1  = [-1]; % Placering av polerna
+K1 = obsgain(A1,C1,P1);
 
-% Spara parametrarna som skickas in till observatören i 
+% Spara parametrarna som skickas in till observatören  
 obs1params.x0 = h1Init; % Initialvärde på observatörens tillstånd
-obs1params.K1 = K1;     % Observatörsförstärkningen
+obs1params.K = K1;     % Observatörsförstärkningen
 obs1params.d  = d;      % Modellparametrar
+
+%% obs2
+% Anpassa A och C-matrisen så att de passar
+A2  = Gsys.a(1:2,1:2);
+C2  = Gsys.c(2,:);
+
+P2  = [-1 -2]; % Placering av polerna
+K2 = obsgain(A2,C2,P2);
+
+% Spara parametrarna som skickas in till observatören  
+obs2params.x0 = [h1Init h2Init]; % Initialvärde på observatörens tillstånd
+obs2params.K = K2;     % Observatörsförstärkningen
+obs2params.d  = d;      % Modellparametrar
+
+%% obs3
+% Anpassa A och C-matrisen så att de passar
+A3  = Gsys.a(1,1);
+C3  = Gsys.c(3,1);
+
+P3  = [-1]; % Placering av polerna
+K3 = obsgain(A3,C3,P3);
+
+% Spara parametrarna som skickas in till observatören  
+obs3params.x0 = h1Init; % Initialvärde på observatörens tillstånd
+obs3params.K = K3;     % Observatörsförstärkningen
+obs3params.d  = d;      % Modellparametrar
+
+%% obs4
+% Anpassa A och C-matrisen så att de passar
+A4  = Gsys.a(1:2,1:2);
+C4  = Gsys.c(4,:);
+
+P4  = [-1 -2]; % Placering av polerna
+K4 = obsgain(A4,C4,P4);
+
+% Spara parametrarna som skickas in till observatören  
+obs4params.x0 = [h1Init h2Init]; % Initialvärde på observatörens tillstånd
+obs4params.K = K4;     % Observatörsförstärkningen
+obs4params.d  = d;      % Modellparametrar
 
 %% ==================================================
 %  Design av residualgenerator consrel1
@@ -60,7 +101,7 @@ c1params.d    = d;       % Modellparametrar
 %  Tröskelsättning
 %  ==================================================
 
-Jnorm=ones(1,3); % Default är alla trösklar satta till 1
+Jnorm=ones(1,6); % Default är alla trösklar satta till 1
 
 %% ==================================================
 %  Simulera systemet
@@ -107,9 +148,9 @@ plot( tut,T )
 figure(5)
 % Kräver att felmoderna är definierade i samma ordning
 % i 'S' som i 'name'.
-name={'NF', 'Fa', 'Fh2', 'Ff1', 'Fl2', 'Fl3', 'Fc1'};
-%name={'NF', 'Fa', 'Fh1', 'Fh2', 'Ff1', 'Ff2', 'Fl1', 'Fl2', 'Fl3',...
-%'Fc1', 'Fc2'};
+%name={'NF', 'Fa', 'Fh2', 'Ff1', 'Fl2', 'Fl3', 'Fc1'};
+name={'NF', 'Fa', 'Fh1', 'Fh2', 'Ff1', 'Ff2', 'Fl1', 'Fl2', 'Fl3',...
+'Fc1', 'Fc2'};
 
 % Plottar diagnosbeslutet för de olika felmoderna enligt S 
 % och namnger dem efter name.

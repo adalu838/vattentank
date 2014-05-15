@@ -1,33 +1,74 @@
 Model {
   Name			  "TSFS06Lab3"
-  Version		  7.4
+  Version		  8.0
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.309"
+    ComputedModelVersion    "1.313"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
-  SavedCharacterEncoding  "ISO-8859-1"
+  SavedCharacterEncoding  "windows-1252"
   SaveDefaultBlockParams  on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
   DataTypeOverride	  "UseLocalSettings"
+  DataTypeOverrideAppliesTo "AllNumericTypes"
   MinMaxOverflowLogging	  "UseLocalSettings"
   MinMaxOverflowArchiveMode "Overwrite"
+  FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
+  Object {
+    $PropName		    "BdWindowsInfo"
+    $ObjectID		    1
+    $ClassName		    "Simulink.BDWindowsInfo"
+    Object {
+      $PropName		      "WindowsInfo"
+      $ObjectID		      2
+      $ClassName	      "Simulink.WindowInfo"
+      IsActive		      [1]
+      Location		      [621.0, 206.0, 870.0, 629.0]
+      Object {
+	$PropName		"ModelBrowserInfo"
+	$ObjectID		3
+	$ClassName		"Simulink.ModelBrowserInfo"
+	Visible			[0]
+	DockPosition		"Left"
+	Width			[50]
+	Height			[50]
+	Filter			[8]
+      }
+      Object {
+	$PropName		"ExplorerBarInfo"
+	$ObjectID		4
+	$ClassName		"Simulink.ExplorerBarInfo"
+	Visible			[1]
+      }
+      Object {
+	$PropName		"EditorsInfo"
+	$ObjectID		5
+	$ClassName		"Simulink.EditorInfo"
+	IsActive		[1]
+	ViewObjType		"SimulinkSubsys"
+	LoadSaveID		"17"
+	Extents			[818.0, 453.0]
+	ZoomFactor		[1.0]
+	Offset			[0.0, 0.0]
+      }
+    }
+  }
   Created		  "Mon Aug  9 11:59:15 1999"
   Creator		  "klein"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "matkr"
+  LastModifiedBy	  "adalu838"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Mar 30 09:46:00 2010"
-  RTWModifiedTimeStamp	  191843114
-  ModelVersionFormat	  "1.%<AutoIncrement:309>"
+  LastModifiedDate	  "Thu May 15 10:55:23 2014"
+  RTWModifiedTimeStamp	  322045947
+  ModelVersionFormat	  "1.%<AutoIncrement:313>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -35,6 +76,7 @@ Model {
   WideLines		  on
   ShowLineDimensions	  on
   ShowPortDataTypes	  off
+  ShowDesignRanges	  off
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
   ShowStorageClass	  off
@@ -59,6 +101,24 @@ Model {
   AccelTemplateMakefile	  "accel_default_tmf"
   AccelMakeCommand	  "make_rtw"
   TryForcingSFcnDF	  off
+  Object {
+    $PropName		    "DataLoggingOverride"
+    $ObjectID		    6
+    $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
+    model_		    "TSFS06Lab3"
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      "TSFS06Lab3"
+      PropName		      "logAsSpecifiedByModels_"
+    }
+    Array {
+      Type		      "Cell"
+      Dimension		      1
+      Cell		      ""
+      PropName		      "logAsSpecifiedByModelsSSIDs_"
+    }
+  }
   RecordCoverage	  off
   CovPath		  "/"
   CovSaveName		  "covdata"
@@ -101,14 +161,14 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      1
-      Version		      "1.6.0"
+      $ObjectID		      7
+      Version		      "1.12.1"
       Array {
 	Type			"Handle"
 	Dimension		8
 	Simulink.SolverCC {
-	  $ObjectID		  2
-	  Version		  "1.6.0"
+	  $ObjectID		  8
+	  Version		  "1.12.1"
 	  StartTime		  "0.0"
 	  StopTime		  "40"
 	  AbsTol		  "1e-6"
@@ -126,8 +186,11 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  SolverMode		  "SingleTasking"
+	  EnableConcurrentExecution off
+	  ConcurrentTasks	  off
 	  Solver		  "ode3"
 	  SolverName		  "ode3"
+	  SolverJacobianMethodControl "auto"
 	  ShapePreserveControl	  "DisableAll"
 	  ZeroCrossControl	  "UseLocalSettings"
 	  ZeroCrossAlgorithm	  "Nonadaptive"
@@ -139,8 +202,8 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  3
-	  Version		  "1.6.0"
+	  $ObjectID		  9
+	  Version		  "1.12.1"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -152,9 +215,11 @@ Model {
 	  SaveFinalState	  off
 	  SaveCompleteFinalSimState off
 	  SaveFormat		  "Array"
+	  SignalLoggingSaveFormat "ModelDataLogs"
 	  SaveOutput		  on
 	  SaveState		  off
 	  SignalLogging		  on
+	  DSMLogging		  on
 	  InspectSignalLogs	  off
 	  SaveTime		  on
 	  ReturnWorkspaceOutputs  off
@@ -162,14 +227,15 @@ Model {
 	  TimeSaveName		  "tout"
 	  OutputSaveName	  "yout"
 	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
 	  OutputOption		  "RefineOutputTimes"
 	  OutputTimes		  "[]"
 	  ReturnWorkspaceOutputsName "out"
 	  Refine		  "1"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  4
-	  Version		  "1.6.0"
+	  $ObjectID		  10
+	  Version		  "1.12.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    4
@@ -184,14 +250,16 @@ Model {
 	  ConditionallyExecuteInputs on
 	  InlineParams		  off
 	  UseIntDivNetSlope	  off
+	  UseFloatMulNetSlope	  off
+	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  on
 	  BufferReuse		  on
 	  EnhancedBackFolding	  off
 	  StrengthReduction	  off
-	  EnforceIntegerDowncast  on
 	  ExpressionFolding	  on
 	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
 	  EnableMemcpy		  on
 	  MemcpyThreshold	  64
 	  PassReuseOutputArgsAs	  "Structure reference"
@@ -211,13 +279,15 @@ Model {
 	  EfficientMapNaN2IntZero on
 	  OptimizeModelRefInitCode off
 	  LifeSpan		  "inf"
+	  MaxStackSize		  "Inherit from target"
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
+	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  5
-	  Version		  "1.6.0"
+	  $ObjectID		  11
+	  Version		  "1.12.1"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -240,6 +310,8 @@ Model {
 	  MinStepSizeMsg	  "warning"
 	  TimeAdjustmentMsg	  "none"
 	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
 	  SolverPrmCheckMsg	  "none"
 	  InheritedTsInSrcMsg	  "warning"
 	  DiscreteInheritContinuousMsg "warning"
@@ -264,18 +336,20 @@ Model {
 	  UnnecessaryDatatypeConvMsg "none"
 	  VectorMatrixConversionMsg "none"
 	  InvalidFcnCallConnMsg	  "error"
-	  FcnCallInpInsideContextMsg "Use local settings"
+	  FcnCallInpInsideContextMsg "UseLocalSettings"
 	  SignalLabelMismatchMsg  "none"
 	  UnconnectedInputMsg	  "warning"
 	  UnconnectedOutputMsg	  "warning"
 	  UnconnectedLineMsg	  "warning"
 	  SFcnCompatibilityMsg	  "none"
+	  FrameProcessingCompatibilityMsg "warning"
 	  UniqueDataStoreMsg	  "none"
 	  BusObjectLabelMismatch  "warning"
 	  RootOutportRequireBusObject "warning"
 	  AssertControl		  "UseLocalSettings"
 	  EnableOverflowDetection off
 	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
 	  ModelReferenceVersionMismatchMessage "none"
 	  ModelReferenceIOMismatchMessage "none"
 	  ModelReferenceCSMismatchMessage "none"
@@ -285,17 +359,34 @@ Model {
 	  ModelReferenceExtraNoncontSigs "error"
 	  StateNameClashWarn	  "warning"
 	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  SimStateOlderReleaseMsg "error"
+	  InitInArrayFormatMsg	  "warning"
 	  StrictBusMsg		  "None"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
 	  LoggingUnavailableSignals "error"
 	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
+	  SFUnconditionalTransitionShadowingDiag "warning"
+	  SFUndirectedBroadcastEventsDiag "warning"
+	  SFTransitionActionBeforeConditionDiag	"warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  6
-	  Version		  "1.6.0"
+	  $ObjectID		  12
+	  Version		  "1.12.1"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
 	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
 	  ProdIntDivRoundTo	  "Undefined"
 	  ProdEndianess		  "Unspecified"
 	  ProdWordSize		  32
@@ -305,6 +396,11 @@ Model {
 	  TargetBitPerShort	  16
 	  TargetBitPerInt	  32
 	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
 	  TargetShiftRightIntArith on
 	  TargetIntDivRoundTo	  "Undefined"
 	  TargetEndianess	  "Unspecified"
@@ -317,17 +413,23 @@ Model {
 	  ProdEqTarget		  on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  7
-	  Version		  "1.6.0"
+	  $ObjectID		  13
+	  Version		  "1.12.1"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
+	  ParallelModelReferenceMATLABWorkerInit "None"
 	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
 	  ModelReferencePassRootInputsByReference on
 	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  8
-	  Version		  "1.6.0"
+	  $ObjectID		  14
+	  Version		  "1.12.1"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -336,12 +438,13 @@ Model {
 	  SimExtrinsic		  on
 	  SimIntegrity		  on
 	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  on
 	  SimBuildMode		  "sf_incremental_build"
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  9
-	  Version		  "1.6.0"
+	  $ObjectID		  15
+	  Version		  "1.12.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    2
@@ -353,6 +456,7 @@ Model {
 	  GenCodeOnly		  off
 	  MakeCommand		  "make_rtw"
 	  GenerateMakefile	  on
+	  PackageGeneratedCodeAndArtifacts off
 	  TemplateMakefile	  "grt_default_tmf"
 	  GenerateReport	  off
 	  SaveLog		  off
@@ -369,6 +473,13 @@ Model {
 	  RTWUseSimCustomCode	  off
 	  IncludeHyperlinkInReport off
 	  LaunchReport		  off
+	  PortableWordSizes	  off
+	  GenerateErtSFunction	  off
+	  CreateSILPILBlock	  "None"
+	  CodeExecutionProfiling  off
+	  CodeExecutionProfileVariable "executionProfile"
+	  CodeProfilingSaveOptions "SummaryOnly"
+	  CodeProfilingInstrumentation off
 	  TargetLang		  "C"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
 	  IncludeERTFirstTime	  on
@@ -378,14 +489,18 @@ Model {
 	  GenerateTraceReportSf	  off
 	  GenerateTraceReportEml  off
 	  GenerateCodeInfo	  off
+	  GenerateWebview	  off
+	  GenerateCodeMetricsReport off
+	  GenerateCodeReplacementReport	off
 	  RTWCompilerOptimization "Off"
 	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
 	  Array {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      10
-	      Version		      "1.6.0"
+	      $ObjectID		      16
+	      Version		      "1.12.1"
 	      Array {
 		Type			"Cell"
 		Dimension		16
@@ -416,9 +531,11 @@ Model {
 	      PreserveName	      off
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
+	      OperatorAnnotations     off
 	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      off
 	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
@@ -433,19 +550,22 @@ Model {
 	      ParamNamingRule	      "None"
 	      SignalNamingRule	      "None"
 	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
+	      MATLABSourceComments    off
 	      EnableCustomComments    off
+	      InternalIdentifier      "Classic"
 	      InlinedPrmAccess	      "Literals"
 	      ReqsInCode	      off
 	      UseSimReservedNames     off
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      11
-	      Version		      "1.6.0"
+	      $ObjectID		      17
+	      Version		      "1.12.1"
 	      Array {
 		Type			"Cell"
-		Dimension		15
+		Dimension		14
 		Cell			"IncludeMdlTerminateFcn"
 		Cell			"CombineOutputUpdateFcns"
 		Cell			"SuppressErrorStatus"
@@ -455,18 +575,17 @@ Model {
 		Cell			"ModelStepFunctionPrototypeControlCompliant"
 		Cell			"MultiInstanceERTCode"
 		Cell			"PurelyIntegerCode"
-		Cell			"SupportNonFinite"
+		Cell			"PortableWordSizes"
 		Cell			"SupportComplex"
 		Cell			"SupportAbsoluteTime"
 		Cell			"SupportContinuousTime"
 		Cell			"SupportNonInlinedSFcns"
-		Cell			"PortableWordSizes"
 		PropName		"DisabledProps"
 	      }
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      TargetFunctionLibrary   "ANSI_C"
+	      CodeReplacementLibrary  "ANSI_C"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
 	      ERTMultiwordLength      256
@@ -478,9 +597,11 @@ Model {
 	      ModelReferenceCompliant on
 	      ParMdlRefBuildCompliant on
 	      CompOptLevelCompliant   on
+	      ConcurrentExecutionCompliant on
 	      IncludeMdlTerminateFcn  on
 	      GeneratePreprocessorConditionals "Disable all"
 	      CombineOutputUpdateFcns off
+	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
 	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
@@ -497,10 +618,10 @@ Model {
 	      SupportVariableSizeSignals off
 	      EnableShiftOperators    on
 	      ParenthesesLevel	      "Nominal"
-	      PortableWordSizes	      off
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
+	      GRTInterface	      on
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -512,6 +633,7 @@ Model {
 	      RTWCAPISignals	      off
 	      RTWCAPIParams	      off
 	      RTWCAPIStates	      off
+	      RTWCAPIRootIO	      off
 	      GenerateASAP2	      off
 	    }
 	    PropName		    "Components"
@@ -521,14 +643,25 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    " [ 360, 285, 1240, 915 ] "
+      ConfigPrmDlgPosition     [ 360, 285, 1240, 915 ] 
     }
     PropName		    "ConfigurationSets"
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    1
+    $ObjectID		    7
   }
+  Object {
+    $PropName		    "DataTransfer"
+    $ObjectID		    18
+    $ClassName		    "Simulink.GlobalDataTransfer"
+    DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
+    DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
+    DefaultTransitionBetweenContTasks "Ensure deterministic transfer (minimum delay)"
+    DefaultExtrapolationMethodBetweenContTasks "None"
+    AutoInsertRateTranBlk   [0]
+  }
+  ExplicitPartitioning	  off
   BlockDefaults {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
@@ -560,10 +693,30 @@ Model {
     FontWeight		    "normal"
     FontAngle		    "normal"
   }
+  MaskDefaults {
+    SelfModifiable	    "off"
+    IconFrame		    "on"
+    IconOpaque		    "on"
+    RunInitForIconRedraw    "off"
+    IconRotate		    "none"
+    PortRotate		    "default"
+    IconUnits		    "autoscale"
+  }
+  MaskParameterDefaults {
+    Evaluate		    "on"
+    Tunable		    "on"
+    NeverSave		    "off"
+    Internal		    "off"
+    ReadOnly		    "off"
+    Enabled		    "on"
+    Visible		    "on"
+    ToolTip		    "on"
+  }
   BlockParameterDefaults {
     Block {
       BlockType		      Clock
       DisplayTime	      off
+      Decimation	      "10"
     }
     Block {
       BlockType		      Constant
@@ -572,14 +725,11 @@ Model {
       SamplingMode	      "Sample based"
       OutMin		      "[]"
       OutMax		      "[]"
-      OutDataTypeMode	      "Inherit from 'Constant value'"
-      OutDataType	      "fixdt(1,16,0)"
-      ConRadixGroup	      "Use specified scaling"
-      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
       LockScale		      off
       SampleTime	      "inf"
       FramePeriod	      "inf"
+      PreserveConstantTs      off
     }
     Block {
       BlockType		      Demux
@@ -593,6 +743,12 @@ Model {
       PropagateVarSize	      "Only when enabling"
       ShowOutputPort	      off
       ZeroCross		      on
+      PortDimensions	      "1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "double"
+      Interpolate	      on
     }
     Block {
       BlockType		      Fcn
@@ -602,6 +758,7 @@ Model {
     Block {
       BlockType		      FromWorkspace
       VariableName	      "simulink_input"
+      OutDataTypeStr	      "Inherit: auto"
       SampleTime	      "-1"
       Interpolate	      on
       ZeroCross		      off
@@ -613,16 +770,9 @@ Model {
       Multiplication	      "Element-wise(K.*u)"
       ParamMin		      "[]"
       ParamMax		      "[]"
-      ParameterDataTypeMode   "Same as input"
-      ParameterDataType	      "fixdt(1,16,0)"
-      ParameterScalingMode    "Best Precision: Matrix-wise"
-      ParameterScaling	      "[]"
       ParamDataTypeStr	      "Inherit: Same as input"
       OutMin		      "[]"
       OutMax		      "[]"
-      OutDataTypeMode	      "Same as input"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Same as input"
       LockScale		      off
       RndMeth		      "Floor"
@@ -632,28 +782,24 @@ Model {
     Block {
       BlockType		      Inport
       Port		      "1"
-      UseBusObject	      off
-      BusObject		      "BusObject"
+      OutputFunctionCall      off
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
       BusOutputAsStruct	      off
       PortDimensions	      "-1"
       VarSizeSig	      "Inherit"
       SampleTime	      "-1"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      DataType		      "auto"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
-      OutDataTypeStr	      "Inherit: auto"
-      LockScale		      off
       SignalType	      "auto"
       SamplingMode	      "auto"
       LatchByDelayingOutsideSignal off
-      LatchByCopyingInsideSignal off
+      LatchInputForFeedbackSignals off
       Interpolate	      on
     }
     Block {
-      BlockType		      "M-S-Function"
-      FunctionName	      "mlfile"
+      BlockType		      M-S-Function
+      FunctionName	      "matlabfile"
       DisplayMFileStacktrace  on
     }
     Block {
@@ -663,9 +809,6 @@ Model {
       SampleTime	      "-1"
       OutMin		      "[]"
       OutMax		      "[]"
-      OutDataTypeMode	      "Same as first input"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Same as first input"
       LockScale		      off
       RndMeth		      "Floor"
@@ -685,19 +828,14 @@ Model {
     Block {
       BlockType		      Outport
       Port		      "1"
-      UseBusObject	      off
-      BusObject		      "BusObject"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
       BusOutputAsStruct	      off
       PortDimensions	      "-1"
       VarSizeSig	      "Inherit"
       SampleTime	      "-1"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      DataType		      "auto"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
-      OutDataTypeStr	      "Inherit: auto"
-      LockScale		      off
       SignalType	      "auto"
       SamplingMode	      "auto"
       SourceOfInitialOutputValue "Dialog"
@@ -713,9 +851,6 @@ Model {
       InputSameDT	      on
       OutMin		      "[]"
       OutMax		      "[]"
-      OutDataTypeMode	      "Same as first input"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Same as first input"
       LockScale		      off
       RndMeth		      "Zero"
@@ -726,24 +861,21 @@ Model {
       BlockType		      RelationalOperator
       Operator		      ">="
       InputSameDT	      on
-      LogicOutDataTypeMode    "Logical (see Configuration Parameters: Optimization)"
-      LogicDataType	      "uint(8)"
       OutDataTypeStr	      "Inherit: Logical (see Configuration Parameters: Optimization)"
       ZeroCross		      on
       SampleTime	      "-1"
     }
     Block {
       BlockType		      Saturate
+      UpperLimitSource	      "Dialog"
       UpperLimit	      "0.5"
+      LowerLimitSource	      "Dialog"
       LowerLimit	      "-0.5"
       LinearizeAsGain	      on
       ZeroCross		      on
       SampleTime	      "-1"
       OutMin		      "[]"
       OutMax		      "[]"
-      OutDataTypeMode	      "Same as input"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Same as input"
       LockScale		      off
       RndMeth		      "Floor"
@@ -776,7 +908,11 @@ Model {
       RTWMemSecDataParameters "Inherit from model"
       SimViewingDevice	      off
       DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
       MinMaxOverflowLogging   "UseLocalSettings"
+      SFBlockType	      "NONE"
+      Variant		      off
+      GeneratePreprocessorConditionals off
     }
     Block {
       BlockType		      Sum
@@ -788,9 +924,6 @@ Model {
       AccumDataTypeStr	      "Inherit: Inherit via internal rule"
       OutMin		      "[]"
       OutMax		      "[]"
-      OutDataTypeMode	      "Same as first input"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Same as first input"
       LockScale		      off
       RndMeth		      "Floor"
@@ -806,7 +939,9 @@ Model {
       MaxDataPoints	      "1000"
       Decimation	      "1"
       SampleTime	      "0"
+      SaveFormat	      "Array"
       FixptAsFi		      off
+      NumInputs		      "1"
     }
     Block {
       BlockType		      TransportDelay
@@ -828,8 +963,8 @@ Model {
   }
   System {
     Name		    "TSFS06Lab3"
-    Location		    [343, 158, 1157, 603]
-    Open		    on
+    Location		    [621, 206, 1491, 835]
+    Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -842,21 +977,22 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    141
+    SIDHighWatermark	    "155"
     Block {
       BlockType		      Clock
       Name		      "Clock"
-      SID		      1
+      SID		      "1"
       Position		      [395, 50, 440, 70]
+      ZOrder		      -1
       DisplayTime	      on
-      Decimation	      "10"
     }
     Block {
       BlockType		      SubSystem
       Name		      "Controller"
-      SID		      2
+      SID		      "2"
       Ports		      [2, 1]
       Position		      [140, 126, 180, 184]
+      ZOrder		      -2
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -866,7 +1002,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Controller"
-	Location		[589, 396, 1062, 680]
+	Location		[449, 181, 1319, 810]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -882,15 +1018,17 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "ref"
-	  SID			  3
+	  SID			  "3"
 	  Position		  [15, 18, 45, 32]
+	  ZOrder		  -1
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "y"
-	  SID			  4
+	  SID			  "4"
 	  Position		  [15, 125, 45, 135]
+	  ZOrder		  -2
 	  NamePlacement		  "alternate"
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -898,29 +1036,23 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  "Demux"
-	  SID			  5
+	  SID			  "5"
 	  Ports			  [1, 4]
 	  Position		  [65, 77, 75, 178]
+	  ZOrder		  -3
 	  BackgroundColor	  "black"
 	  ShowName		  off
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "PID Controller\n(with Approximate\nDerivative)"
-	  SID			  6
+	  SID			  "6"
 	  Ports			  [1, 1]
 	  Position		  [270, 20, 300, 50]
-	  LibraryVersion	  "1.41"
-	  SourceBlock		  "simulink_extras/Additional\nLinear/PID Controller\n(with Approximate\nDerivative)"
+	  ZOrder		  -4
+	  LibraryVersion	  "1.13"
+	  SourceBlock		  "simulink_need_slupdate/PID Controller\n(with Approximate\nDerivative)"
 	  SourceType		  "PID(2) Controller"
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
 	  P			  "10"
 	  I			  "4"
 	  D			  "0"
@@ -929,8 +1061,11 @@ Model {
 	Block {
 	  BlockType		  Saturate
 	  Name			  "Saturation"
-	  SID			  7
+	  SID			  "7"
+	  Ports			  [1, 1]
 	  Position		  [340, 20, 365, 50]
+	  ZOrder		  -5
+	  InputPortMap		  "u0"
 	  UpperLimit		  "10"
 	  LowerLimit		  "0"
 	  SampleTime		  "0.1"
@@ -938,45 +1073,52 @@ Model {
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum"
-	  SID			  8
+	  SID			  "8"
 	  Ports			  [2, 1]
 	  Position		  [190, 17, 220, 48]
+	  ZOrder		  -6
 	  Inputs		  "+-"
 	}
 	Block {
 	  BlockType		  Terminator
 	  Name			  "Terminator1"
-	  SID			  9
+	  SID			  "9"
 	  Position		  [125, 130, 145, 150]
+	  ZOrder		  -7
 	  ShowName		  off
 	}
 	Block {
 	  BlockType		  Terminator
 	  Name			  "Terminator2"
-	  SID			  10
+	  SID			  "10"
 	  Position		  [125, 105, 145, 125]
+	  ZOrder		  -8
 	  ShowName		  off
 	}
 	Block {
 	  BlockType		  Terminator
 	  Name			  "Terminator3"
-	  SID			  11
+	  SID			  "11"
 	  Position		  [125, 160, 145, 180]
+	  ZOrder		  -9
 	  ShowName		  off
 	}
 	Block {
 	  BlockType		  TransportDelay
 	  Name			  "Transport\nDelay"
-	  SID			  12
+	  SID			  "12"
+	  Ports			  [1, 1]
 	  Position		  [120, 45, 155, 75]
+	  ZOrder		  -10
 	  DelayTime		  "0.1"
 	  InitialOutput		  "h1Init"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "u"
-	  SID			  13
+	  SID			  "13"
 	  Position		  [410, 28, 440, 42]
+	  ZOrder		  -11
 	  IconDisplay		  "Port number"
 	}
 	Line {
@@ -1047,9 +1189,10 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "Diagnosis system"
-      SID		      14
+      SID		      "14"
       Ports		      [2, 1]
       Position		      [235, 252, 340, 308]
+      ZOrder		      -3
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -1059,7 +1202,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Diagnosis system"
-	Location		[538, 163, 1164, 545]
+	Location		[621, 206, 1491, 835]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1075,24 +1218,27 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "y_meas"
-	  SID			  15
+	  SID			  "15"
 	  Position		  [45, 138, 75, 152]
+	  ZOrder		  -1
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
-	  SID			  16
+	  SID			  "16"
 	  Position		  [45, 98, 75, 112]
+	  ZOrder		  -2
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Consistency Relations"
-	  SID			  17
+	  SID			  "17"
 	  Ports			  [2, 1, 1]
 	  Position		  [195, 223, 320, 312]
+	  ZOrder		  -3
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -1102,8 +1248,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Consistency Relations"
-	    Location		    [606, 172, 1575, 595]
-	    Open		    off
+	    Location		    [621, 206, 1491, 835]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1118,31 +1264,35 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "y_meas"
-	      SID		      18
+	      SID		      "18"
 	      Position		      [20, 108, 50, 122]
+	      ZOrder		      -1
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "u"
-	      SID		      19
+	      SID		      "19"
 	      Position		      [20, 38, 50, 52]
+	      ZOrder		      -2
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      EnablePort
 	      Name		      "Enable"
-	      SID		      20
+	      SID		      "20"
 	      Ports		      []
 	      Position		      [475, 20, 495, 40]
+	      ZOrder		      -3
 	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Approximativ\nderivering"
-	      SID		      21
+	      SID		      "21"
 	      Ports		      [1, 1]
 	      Position		      [80, 114, 120, 146]
+	      ZOrder		      -4
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
 	      RTWSystemCode	      "Auto"
@@ -1150,23 +1300,24 @@ Model {
 	      Opaque		      off
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
-	      MaskType		      "Approximativ derivering"
-	      MaskPromptString	      "Pol"
-	      MaskStyleString	      "edit"
-	      MaskTunableValueString  "on"
-	      MaskEnableString	      "on"
-	      MaskVisibilityString    "on"
-	      MaskToolTipString	      "on"
-	      MaskVariables	      "s=@1;"
-	      MaskIconFrame	      on
-	      MaskIconOpaque	      on
-	      MaskIconRotate	      "none"
-	      MaskPortRotate	      "default"
-	      MaskIconUnits	      "autoscale"
-	      MaskValueString	      "-1"
+	      Object {
+		$PropName		"MaskObject"
+		$ObjectID		19
+		$ClassName		"Simulink.Mask"
+		Type			"Approximativ derivering"
+		Object {
+		  $PropName		  "Parameters"
+		  $ObjectID		  20
+		  $ClassName		  "Simulink.MaskParameter"
+		  Type			  "edit"
+		  Name			  "s"
+		  Prompt		  "Pol"
+		  Value			  "-1"
+		}
+	      }
 	      System {
 		Name			"Approximativ\nderivering"
-		Location		[614, 382, 1387, 956]
+		Location		[584, 270, 1413, 1028]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -1182,33 +1333,37 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "y"
-		  SID			  22
+		  SID			  "22"
 		  Position		  [20, 143, 50, 157]
+		  ZOrder		  -1
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Demux
 		  Name			  "Demux"
-		  SID			  23
+		  SID			  "23"
 		  Ports			  [1, 4]
 		  Position		  [85, 40, 90, 255]
+		  ZOrder		  -2
 		  BackgroundColor	  "black"
 		  ShowName		  off
 		}
 		Block {
 		  BlockType		  Mux
 		  Name			  "Mux"
-		  SID			  24
+		  SID			  "24"
 		  Ports			  [4, 1]
 		  Position		  [430, 39, 435, 256]
+		  ZOrder		  -3
 		  ShowName		  off
 		  DisplayOption		  "bar"
 		}
 		Block {
 		  BlockType		  StateSpace
 		  Name			  "State-Space"
-		  SID			  136
+		  SID			  "136"
 		  Position		  [195, 48, 255, 82]
+		  ZOrder		  -4
 		  A			  "s"
 		  B			  "-s^2"
 		  D			  "-s"
@@ -1217,8 +1372,9 @@ Model {
 		Block {
 		  BlockType		  StateSpace
 		  Name			  "State-Space1"
-		  SID			  138
+		  SID			  "138"
 		  Position		  [195, 103, 255, 137]
+		  ZOrder		  -5
 		  A			  "s"
 		  B			  "-s^2"
 		  D			  "-s"
@@ -1227,8 +1383,9 @@ Model {
 		Block {
 		  BlockType		  StateSpace
 		  Name			  "State-Space2"
-		  SID			  139
+		  SID			  "139"
 		  Position		  [195, 158, 255, 192]
+		  ZOrder		  -6
 		  A			  "s"
 		  B			  "-s^2"
 		  D			  "-s"
@@ -1237,8 +1394,9 @@ Model {
 		Block {
 		  BlockType		  StateSpace
 		  Name			  "State-Space3"
-		  SID			  140
+		  SID			  "140"
 		  Position		  [195, 213, 255, 247]
+		  ZOrder		  -7
 		  A			  "s"
 		  B			  "-s^2"
 		  D			  "-s"
@@ -1247,8 +1405,9 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "yder"
-		  SID			  29
+		  SID			  "29"
 		  Position		  [490, 143, 520, 157]
+		  ZOrder		  -8
 		  IconDisplay		  "Port number"
 		}
 		Line {
@@ -1316,33 +1475,37 @@ Model {
 	    Block {
 	      BlockType		      Fcn
 	      Name		      "Direct implementation of\nconsistency relations using approximated\nderivatives"
-	      SID		      30
+	      SID		      "30"
 	      Position		      [435, 98, 475, 132]
+	      ZOrder		      -5
 	      Expr		      "u(6)-d1*u(1)+d2*sqrt(u(2))"
 	    }
 	    Block {
 	      BlockType		      ZeroPole
 	      Name		      "LP-filter"
-	      SID		      141
+	      SID		      "141"
 	      Position		      [540, 97, 600, 133]
+	      ZOrder		      -6
 	      Zeros		      "[]"
 	      Poles		      "[-1]"
 	    }
 	    Block {
-	      BlockType		      "M-S-Function"
+	      BlockType		      M-S-Function
 	      Name		      "M-file implementation\nof consistency relation\nwith dynamics"
-	      SID		      32
+	      SID		      "32"
 	      Ports		      [1, 1]
 	      Position		      [430, 184, 485, 216]
+	      ZOrder		      -7
 	      FunctionName	      "consrel1"
 	      Parameters	      "c1params"
 	    }
 	    Block {
 	      BlockType		      Mux
 	      Name		      "Mux"
-	      SID		      33
+	      SID		      "33"
 	      Ports		      [2, 1]
 	      Position		      [650, 71, 655, 244]
+	      ZOrder		      -8
 	      ShowName		      off
 	      Inputs		      "2"
 	      DisplayOption	      "bar"
@@ -1350,9 +1513,10 @@ Model {
 	    Block {
 	      BlockType		      Mux
 	      Name		      "Mux1"
-	      SID		      34
+	      SID		      "34"
 	      Ports		      [2, 1]
 	      Position		      [175, 29, 180, 96]
+	      ZOrder		      -9
 	      ShowName		      off
 	      Inputs		      "2"
 	      DisplayOption	      "bar"
@@ -1360,9 +1524,10 @@ Model {
 	    Block {
 	      BlockType		      Mux
 	      Name		      "Mux2"
-	      SID		      35
+	      SID		      "35"
 	      Ports		      [2, 1]
 	      Position		      [315, 79, 320, 146]
+	      ZOrder		      -10
 	      ShowName		      off
 	      Inputs		      "2"
 	      DisplayOption	      "bar"
@@ -1370,8 +1535,9 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "r"
-	      SID		      36
+	      SID		      "36"
 	      Position		      [705, 153, 735, 167]
+	      ZOrder		      -11
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -1451,31 +1617,35 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "Constant"
-	  SID			  37
+	  SID			  "37"
 	  Position		  [115, 20, 145, 50]
+	  ZOrder		  -4
 	}
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain"
-	  SID			  38
+	  SID			  "38"
 	  Position		  [455, 182, 530, 218]
+	  ZOrder		  -5
 	  Gain			  "1./Jnorm"
 	}
 	Block {
 	  BlockType		  Mux
 	  Name			  "Mux1"
-	  SID			  39
+	  SID			  "39"
 	  Ports			  [2, 1]
 	  Position		  [390, 53, 435, 342]
+	  ZOrder		  -6
 	  ShowName		  off
 	  Inputs		  "2"
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Observers"
-	  SID			  40
+	  SID			  "40"
 	  Ports			  [2, 1, 1]
 	  Position		  [180, 85, 335, 165]
+	  ZOrder		  -7
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -1485,7 +1655,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Observers"
-	    Location		    [344, 398, 795, 624]
+	    Location		    [621, 206, 1491, 835]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1501,56 +1671,97 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "u"
-	      SID		      41
+	      SID		      "41"
 	      Position		      [20, 88, 50, 102]
+	      ZOrder		      -1
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "y_meas"
-	      SID		      42
+	      SID		      "42"
 	      Position		      [20, 123, 50, 137]
+	      ZOrder		      -2
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      EnablePort
 	      Name		      "Enable"
-	      SID		      43
+	      SID		      "43"
 	      Ports		      []
 	      Position		      [190, 20, 210, 40]
+	      ZOrder		      -3
 	    }
 	    Block {
-	      BlockType		      "M-S-Function"
-	      Name		      "M-file implementation\nof observer based\nresidual generator"
-	      SID		      44
+	      BlockType		      M-S-Function
+	      Name		      " \n "
+	      SID		      "44"
 	      Ports		      [1, 1]
-	      Position		      [185, 99, 240, 131]
+	      Position		      [175, 69, 230, 101]
+	      ZOrder		      -4
+	      ShowName		      off
 	      FunctionName	      "obs1"
 	      Parameters	      "obs1params"
 	    }
 	    Block {
+	      BlockType		      M-S-Function
+	      Name		      " \n 1"
+	      SID		      "153"
+	      Ports		      [1, 1]
+	      Position		      [175, 114, 230, 146]
+	      ZOrder		      1
+	      NamePlacement	      "alternate"
+	      ShowName		      off
+	      FunctionName	      "obs2"
+	      Parameters	      "obs2params"
+	    }
+	    Block {
+	      BlockType		      M-S-Function
+	      Name		      " \n 2"
+	      SID		      "154"
+	      Ports		      [1, 1]
+	      Position		      [175, 159, 230, 191]
+	      ZOrder		      2
+	      ShowName		      off
+	      FunctionName	      "obs3"
+	      Parameters	      "obs3params"
+	    }
+	    Block {
+	      BlockType		      M-S-Function
+	      Name		      " \n 3"
+	      SID		      "155"
+	      Ports		      [1, 1]
+	      Position		      [175, 204, 230, 236]
+	      ZOrder		      3
+	      ShowName		      off
+	      FunctionName	      "obs4"
+	      Parameters	      "obs4params"
+	    }
+	    Block {
 	      BlockType		      Mux
 	      Name		      "Mux"
-	      SID		      45
-	      Ports		      [1, 1]
-	      Position		      [280, 66, 310, 164]
-	      Inputs		      "1"
+	      SID		      "45"
+	      Ports		      [4, 1]
+	      Position		      [285, 66, 310, 239]
+	      ZOrder		      -5
 	    }
 	    Block {
 	      BlockType		      Mux
 	      Name		      "Mux1"
-	      SID		      46
+	      SID		      "46"
 	      Ports		      [2, 1]
 	      Position		      [100, 79, 105, 146]
+	      ZOrder		      -6
 	      Inputs		      "2"
 	      DisplayOption	      "bar"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "Residuals"
-	      SID		      47
-	      Position		      [375, 108, 405, 122]
+	      SID		      "47"
+	      Position		      [385, 148, 415, 162]
+	      ZOrder		      -7
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -1568,14 +1779,31 @@ Model {
 	    Line {
 	      SrcBlock		      "Mux1"
 	      SrcPort		      1
-	      DstBlock		      "M-file implementation\nof observer based\nresidual generator"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "M-file implementation\nof observer based\nresidual generator"
-	      SrcPort		      1
-	      DstBlock		      "Mux"
-	      DstPort		      1
+	      Points		      [22, 0]
+	      Branch {
+		Points			[0, 15]
+		Branch {
+		  Points		  [0, 45]
+		  Branch {
+		    Points		    [0, 45]
+		    DstBlock		    " \n 3"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    " \n 2"
+		    DstPort		    1
+		  }
+		}
+		Branch {
+		  DstBlock		  " \n 1"
+		  DstPort		  1
+		}
+	      }
+	      Branch {
+		Points			[0, -30]
+		DstBlock		" \n "
+		DstPort			1
+	      }
 	    }
 	    Line {
 	      SrcBlock		      "u"
@@ -1583,13 +1811,38 @@ Model {
 	      DstBlock		      "Mux1"
 	      DstPort		      1
 	    }
+	    Line {
+	      SrcBlock		      " \n "
+	      SrcPort		      1
+	      DstBlock		      "Mux"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " \n 1"
+	      SrcPort		      1
+	      DstBlock		      "Mux"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      " \n 2"
+	      SrcPort		      1
+	      DstBlock		      "Mux"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      " \n 3"
+	      SrcPort		      1
+	      DstBlock		      "Mux"
+	      DstPort		      4
+	    }
 	  }
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "r"
-	  SID			  48
+	  SID			  "48"
 	  Position		  [555, 193, 585, 207]
+	  ZOrder		  -8
 	  IconDisplay		  "Port number"
 	}
 	Line {
@@ -1660,6 +1913,7 @@ Model {
 	  }
 	}
 	Annotation {
+	  SID			  "142"
 	  Name			  "Enable"
 	  Position		  [195, 25]
 	}
@@ -1668,17 +1922,19 @@ Model {
     Block {
       BlockType		      FromWorkspace
       Name		      "From \nWorkspace"
-      SID		      49
+      SID		      "49"
       Position		      [20, 125, 80, 155]
+      ZOrder		      -4
       VariableName	      "[t,Uref]"
       SampleTime	      "0.1"
     }
     Block {
       BlockType		      SubSystem
       Name		      "Nonlinear model\nwith faults"
-      SID		      50
+      SID		      "50"
       Ports		      [1, 1]
       Position		      [220, 120, 360, 190]
+      ZOrder		      -5
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -1686,25 +1942,69 @@ Model {
       Opaque		      off
       RequestExecContextInheritance off
       MaskHideContents	      off
-      MaskType		      "Nonlinear WTmodel with faults"
-      MaskPromptString	      "Actuator faults fa|SensorFaults fs=[fh1 fh2 ff1 ff2]|Leaks fl=[fl1 fl2 fl3]|Clogging fc="
-      "[fc1 fc2]|Fault initialization time |Fault ramp duration|Measurement noise"
-      MaskStyleString	      "edit,edit,edit,edit,edit,edit,checkbox"
-      MaskTunableValueString  "on,on,on,on,on,on,on"
-      MaskCallbackString      "||||||"
-      MaskEnableString	      "on,on,on,on,on,on,on"
-      MaskVisibilityString    "on,on,on,on,on,on,on"
-      MaskToolTipString	      "on,on,on,on,on,on,on"
-      MaskVariables	      "fa=@1;fs=@2;fl=@3;fc=@4;tstep=@5;traise=@6;noise=@7;"
-      MaskIconFrame	      on
-      MaskIconOpaque	      on
-      MaskIconRotate	      "none"
-      MaskPortRotate	      "default"
-      MaskIconUnits	      "autoscale"
-      MaskValueString	      "0|[0 0 0 0]|[0 0 0]|[0 0]|15|2|on"
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		21
+	$ClassName		"Simulink.Mask"
+	Type			"Nonlinear WTmodel with faults"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  7
+	  Object {
+	    $ObjectID		    22
+	    Type		    "edit"
+	    Name		    "fa"
+	    Prompt		    "Actuator faults fa"
+	    Value		    "0"
+	  }
+	  Object {
+	    $ObjectID		    23
+	    Type		    "edit"
+	    Name		    "fs"
+	    Prompt		    "SensorFaults fs=[fh1 fh2 ff1 ff2]"
+	    Value		    "[0 0 0 0]"
+	  }
+	  Object {
+	    $ObjectID		    24
+	    Type		    "edit"
+	    Name		    "fl"
+	    Prompt		    "Leaks fl=[fl1 fl2 fl3]"
+	    Value		    "[0 0 0]"
+	  }
+	  Object {
+	    $ObjectID		    25
+	    Type		    "edit"
+	    Name		    "fc"
+	    Prompt		    "Clogging fc=[fc1 fc2]"
+	    Value		    "[0 0]"
+	  }
+	  Object {
+	    $ObjectID		    26
+	    Type		    "edit"
+	    Name		    "tstep"
+	    Prompt		    "Fault initialization time "
+	    Value		    "15"
+	  }
+	  Object {
+	    $ObjectID		    27
+	    Type		    "edit"
+	    Name		    "traise"
+	    Prompt		    "Fault ramp duration"
+	    Value		    "2"
+	  }
+	  Object {
+	    $ObjectID		    28
+	    Type		    "checkbox"
+	    Name		    "noise"
+	    Prompt		    "Measurement noise"
+	    Value		    "on"
+	  }
+	  PropName		  "Parameters"
+	}
+      }
       System {
 	Name			"Nonlinear model\nwith faults"
-	Location		[56, 127, 1307, 1169]
+	Location		[26, 52, 1333, 1278]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1720,27 +2020,21 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "u"
-	  SID			  51
+	  SID			  "51"
 	  Position		  [180, 53, 210, 67]
+	  ZOrder		  -1
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Band-Limited\nWhite Noise2"
-	  SID			  52
+	  SID			  "52"
 	  Ports			  [0, 1]
 	  Position		  [885, 460, 915, 490]
-	  LibraryVersion	  "1.762"
+	  ZOrder		  -2
+	  LibraryVersion	  "1.281"
 	  SourceBlock		  "simulink/Sources/Band-Limited\nWhite Noise"
 	  SourceType		  "Band-Limited White Noise."
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
 	  Cov			  "NoiseCov"
 	  Ts			  "0.1"
 	  seed			  "NoiseSeed"
@@ -1749,47 +2043,47 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "Constant"
-	  SID			  53
+	  SID			  "53"
 	  Position		  [885, 520, 915, 550]
+	  ZOrder		  -3
 	  Value			  "noise"
-	  OutDataType		  "sfix(16)"
-	  OutScaling		  "2^0"
 	}
 	Block {
 	  BlockType		  Mux
 	  Name			  "Mux"
-	  SID			  54
+	  SID			  "54"
 	  Ports			  [4, 1]
 	  Position		  [760, 55, 830, 830]
+	  ZOrder		  -4
 	}
 	Block {
 	  BlockType		  Mux
 	  Name			  "Mux1"
-	  SID			  55
+	  SID			  "55"
 	  Ports			  [10, 1]
 	  Position		  [390, 107, 465, 838]
+	  ZOrder		  -5
 	  NamePlacement		  "alternate"
 	  Inputs		  "10"
 	}
 	Block {
 	  BlockType		  Product
 	  Name			  "Product"
-	  SID			  56
+	  SID			  "56"
 	  Ports			  [2, 1]
 	  Position		  [980, 487, 1010, 518]
+	  ZOrder		  -6
 	  InputSameDT		  off
-	  OutDataTypeMode	  "Inherit via internal rule"
-	  OutDataType		  "sfix(16)"
-	  OutScaling		  "2^0"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Rampfel fa"
-	  SID			  57
+	  SID			  "57"
 	  Ports			  [0, 1]
 	  Position		  [180, 129, 220, 161]
+	  ZOrder		  -7
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -1797,24 +2091,41 @@ Model {
 	  Opaque		  off
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
-	  MaskType		  "Ramp fault"
-	  MaskPromptString	  "Fault ramp duration|Fault initiation time|Fault size"
-	  MaskStyleString	  "edit,edit,edit"
-	  MaskTunableValueString  "on,on,on"
-	  MaskCallbackString	  "||"
-	  MaskEnableString	  "on,on,on"
-	  MaskVisibilityString	  "on,on,on"
-	  MaskToolTipString	  "on,on,on"
-	  MaskVariables		  "traise=@1;tstep=@2;fault=@3;"
-	  MaskIconFrame		  on
-	  MaskIconOpaque	  on
-	  MaskIconRotate	  "none"
-	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "autoscale"
-	  MaskValueString	  "traise|tstep|fa"
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    29
+	    $ClassName		    "Simulink.Mask"
+	    Type		    "Ramp fault"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      3
+	      Object {
+		$ObjectID		30
+		Type			"edit"
+		Name			"traise"
+		Prompt			"Fault ramp duration"
+		Value			"traise"
+	      }
+	      Object {
+		$ObjectID		31
+		Type			"edit"
+		Name			"tstep"
+		Prompt			"Fault initiation time"
+		Value			"tstep"
+	      }
+	      Object {
+		$ObjectID		32
+		Type			"edit"
+		Name			"fault"
+		Prompt			"Fault size"
+		Value			"fa"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
 	  System {
 	    Name		    "Rampfel fa"
-	    Location		    [578, 205, 1076, 505]
+	    Location		    [548, 93, 1102, 577]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1830,20 +2141,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp"
-	      SID		      58
+	      SID		      "58"
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -1
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -1852,20 +2156,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp1"
-	      SID		      59
+	      SID		      "59"
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -2
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -1874,9 +2171,10 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum3"
-	      SID		      60
+	      SID		      "60"
 	      Ports		      [2, 1]
 	      Position		      [140, 55, 160, 75]
+	      ZOrder		      -3
 	      ShowName		      off
 	      IconShape		      "round"
 	      Inputs		      "|+-"
@@ -1884,8 +2182,9 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "f"
-	      SID		      61
+	      SID		      "61"
 	      Position		      [220, 58, 250, 72]
+	      ZOrder		      -4
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -1913,9 +2212,10 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Rampfel fc1"
-	  SID			  62
+	  SID			  "62"
 	  Ports			  [0, 1]
 	  Position		  [180, 619, 220, 651]
+	  ZOrder		  -8
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -1923,24 +2223,41 @@ Model {
 	  Opaque		  off
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
-	  MaskType		  "Ramp fault"
-	  MaskPromptString	  "Fault ramp duration|Fault initiation time|Fault size"
-	  MaskStyleString	  "edit,edit,edit"
-	  MaskTunableValueString  "on,on,on"
-	  MaskCallbackString	  "||"
-	  MaskEnableString	  "on,on,on"
-	  MaskVisibilityString	  "on,on,on"
-	  MaskToolTipString	  "on,on,on"
-	  MaskVariables		  "traise=@1;tstep=@2;fault=@3;"
-	  MaskIconFrame		  on
-	  MaskIconOpaque	  on
-	  MaskIconRotate	  "none"
-	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "autoscale"
-	  MaskValueString	  "traise|tstep|fc(1)"
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    33
+	    $ClassName		    "Simulink.Mask"
+	    Type		    "Ramp fault"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      3
+	      Object {
+		$ObjectID		34
+		Type			"edit"
+		Name			"traise"
+		Prompt			"Fault ramp duration"
+		Value			"traise"
+	      }
+	      Object {
+		$ObjectID		35
+		Type			"edit"
+		Name			"tstep"
+		Prompt			"Fault initiation time"
+		Value			"tstep"
+	      }
+	      Object {
+		$ObjectID		36
+		Type			"edit"
+		Name			"fault"
+		Prompt			"Fault size"
+		Value			"fc(1)"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
 	  System {
 	    Name		    "Rampfel fc1"
-	    Location		    [578, 205, 1076, 505]
+	    Location		    [548, 93, 1102, 577]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1956,20 +2273,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp"
-	      SID		      63
+	      SID		      "63"
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -1
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -1978,20 +2288,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp1"
-	      SID		      64
+	      SID		      "64"
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -2
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -2000,9 +2303,10 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum3"
-	      SID		      65
+	      SID		      "65"
 	      Ports		      [2, 1]
 	      Position		      [140, 55, 160, 75]
+	      ZOrder		      -3
 	      ShowName		      off
 	      IconShape		      "round"
 	      Inputs		      "|+-"
@@ -2010,8 +2314,9 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "f"
-	      SID		      66
+	      SID		      "66"
 	      Position		      [220, 58, 250, 72]
+	      ZOrder		      -4
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -2039,9 +2344,10 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Rampfel fc2"
-	  SID			  67
+	  SID			  "67"
 	  Ports			  [0, 1]
 	  Position		  [180, 674, 220, 706]
+	  ZOrder		  -9
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -2049,24 +2355,41 @@ Model {
 	  Opaque		  off
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
-	  MaskType		  "Ramp fault"
-	  MaskPromptString	  "Fault ramp duration|Fault initiation time|Fault size"
-	  MaskStyleString	  "edit,edit,edit"
-	  MaskTunableValueString  "on,on,on"
-	  MaskCallbackString	  "||"
-	  MaskEnableString	  "on,on,on"
-	  MaskVisibilityString	  "on,on,on"
-	  MaskToolTipString	  "on,on,on"
-	  MaskVariables		  "traise=@1;tstep=@2;fault=@3;"
-	  MaskIconFrame		  on
-	  MaskIconOpaque	  on
-	  MaskIconRotate	  "none"
-	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "autoscale"
-	  MaskValueString	  "traise|tstep|fc(2)"
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    37
+	    $ClassName		    "Simulink.Mask"
+	    Type		    "Ramp fault"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      3
+	      Object {
+		$ObjectID		38
+		Type			"edit"
+		Name			"traise"
+		Prompt			"Fault ramp duration"
+		Value			"traise"
+	      }
+	      Object {
+		$ObjectID		39
+		Type			"edit"
+		Name			"tstep"
+		Prompt			"Fault initiation time"
+		Value			"tstep"
+	      }
+	      Object {
+		$ObjectID		40
+		Type			"edit"
+		Name			"fault"
+		Prompt			"Fault size"
+		Value			"fc(2)"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
 	  System {
 	    Name		    "Rampfel fc2"
-	    Location		    [578, 205, 1076, 505]
+	    Location		    [548, 93, 1102, 577]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2082,20 +2405,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp"
-	      SID		      68
+	      SID		      "68"
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -1
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -2104,20 +2420,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp1"
-	      SID		      69
+	      SID		      "69"
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -2
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -2126,9 +2435,10 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum3"
-	      SID		      70
+	      SID		      "70"
 	      Ports		      [2, 1]
 	      Position		      [140, 55, 160, 75]
+	      ZOrder		      -3
 	      ShowName		      off
 	      IconShape		      "round"
 	      Inputs		      "|+-"
@@ -2136,8 +2446,9 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "f"
-	      SID		      71
+	      SID		      "71"
 	      Position		      [220, 58, 250, 72]
+	      ZOrder		      -4
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -2165,9 +2476,10 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Rampfel ff1"
-	  SID			  72
+	  SID			  "72"
 	  Ports			  [0, 1]
 	  Position		  [180, 284, 220, 316]
+	  ZOrder		  -10
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -2175,24 +2487,41 @@ Model {
 	  Opaque		  off
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
-	  MaskType		  "Ramp fault"
-	  MaskPromptString	  "Fault ramp duration|Fault initiation time|Fault size"
-	  MaskStyleString	  "edit,edit,edit"
-	  MaskTunableValueString  "on,on,on"
-	  MaskCallbackString	  "||"
-	  MaskEnableString	  "on,on,on"
-	  MaskVisibilityString	  "on,on,on"
-	  MaskToolTipString	  "on,on,on"
-	  MaskVariables		  "traise=@1;tstep=@2;fault=@3;"
-	  MaskIconFrame		  on
-	  MaskIconOpaque	  on
-	  MaskIconRotate	  "none"
-	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "autoscale"
-	  MaskValueString	  "traise|tstep|fs(3)"
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    41
+	    $ClassName		    "Simulink.Mask"
+	    Type		    "Ramp fault"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      3
+	      Object {
+		$ObjectID		42
+		Type			"edit"
+		Name			"traise"
+		Prompt			"Fault ramp duration"
+		Value			"traise"
+	      }
+	      Object {
+		$ObjectID		43
+		Type			"edit"
+		Name			"tstep"
+		Prompt			"Fault initiation time"
+		Value			"tstep"
+	      }
+	      Object {
+		$ObjectID		44
+		Type			"edit"
+		Name			"fault"
+		Prompt			"Fault size"
+		Value			"fs(3)"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
 	  System {
 	    Name		    "Rampfel ff1"
-	    Location		    [578, 205, 1076, 505]
+	    Location		    [548, 93, 1102, 577]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2208,20 +2537,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp"
-	      SID		      73
+	      SID		      "73"
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -1
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -2230,20 +2552,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp1"
-	      SID		      74
+	      SID		      "74"
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -2
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -2252,9 +2567,10 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum3"
-	      SID		      75
+	      SID		      "75"
 	      Ports		      [2, 1]
 	      Position		      [140, 55, 160, 75]
+	      ZOrder		      -3
 	      ShowName		      off
 	      IconShape		      "round"
 	      Inputs		      "|+-"
@@ -2262,8 +2578,9 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "f"
-	      SID		      76
+	      SID		      "76"
 	      Position		      [220, 58, 250, 72]
+	      ZOrder		      -4
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -2291,9 +2608,10 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Rampfel ff2"
-	  SID			  77
+	  SID			  "77"
 	  Ports			  [0, 1]
 	  Position		  [180, 344, 220, 376]
+	  ZOrder		  -11
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -2301,24 +2619,41 @@ Model {
 	  Opaque		  off
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
-	  MaskType		  "Ramp fault"
-	  MaskPromptString	  "Fault ramp duration|Fault initiation time|Fault size"
-	  MaskStyleString	  "edit,edit,edit"
-	  MaskTunableValueString  "on,on,on"
-	  MaskCallbackString	  "||"
-	  MaskEnableString	  "on,on,on"
-	  MaskVisibilityString	  "on,on,on"
-	  MaskToolTipString	  "on,on,on"
-	  MaskVariables		  "traise=@1;tstep=@2;fault=@3;"
-	  MaskIconFrame		  on
-	  MaskIconOpaque	  on
-	  MaskIconRotate	  "none"
-	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "autoscale"
-	  MaskValueString	  "traise|tstep|fs(4)"
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    45
+	    $ClassName		    "Simulink.Mask"
+	    Type		    "Ramp fault"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      3
+	      Object {
+		$ObjectID		46
+		Type			"edit"
+		Name			"traise"
+		Prompt			"Fault ramp duration"
+		Value			"traise"
+	      }
+	      Object {
+		$ObjectID		47
+		Type			"edit"
+		Name			"tstep"
+		Prompt			"Fault initiation time"
+		Value			"tstep"
+	      }
+	      Object {
+		$ObjectID		48
+		Type			"edit"
+		Name			"fault"
+		Prompt			"Fault size"
+		Value			"fs(4)"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
 	  System {
 	    Name		    "Rampfel ff2"
-	    Location		    [578, 205, 1076, 505]
+	    Location		    [548, 93, 1102, 577]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2334,20 +2669,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp"
-	      SID		      78
+	      SID		      "78"
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -1
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -2356,20 +2684,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp1"
-	      SID		      79
+	      SID		      "79"
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -2
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -2378,9 +2699,10 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum3"
-	      SID		      80
+	      SID		      "80"
 	      Ports		      [2, 1]
 	      Position		      [140, 55, 160, 75]
+	      ZOrder		      -3
 	      ShowName		      off
 	      IconShape		      "round"
 	      Inputs		      "|+-"
@@ -2388,8 +2710,9 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "f"
-	      SID		      81
+	      SID		      "81"
 	      Position		      [220, 58, 250, 72]
+	      ZOrder		      -4
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -2417,9 +2740,10 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Rampfel fh1"
-	  SID			  82
+	  SID			  "82"
 	  Ports			  [0, 1]
 	  Position		  [180, 184, 220, 216]
+	  ZOrder		  -12
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -2427,24 +2751,41 @@ Model {
 	  Opaque		  off
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
-	  MaskType		  "Ramp fault"
-	  MaskPromptString	  "Fault ramp duration|Fault initiation time|Fault size"
-	  MaskStyleString	  "edit,edit,edit"
-	  MaskTunableValueString  "on,on,on"
-	  MaskCallbackString	  "||"
-	  MaskEnableString	  "on,on,on"
-	  MaskVisibilityString	  "on,on,on"
-	  MaskToolTipString	  "on,on,on"
-	  MaskVariables		  "traise=@1;tstep=@2;fault=@3;"
-	  MaskIconFrame		  on
-	  MaskIconOpaque	  on
-	  MaskIconRotate	  "none"
-	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "autoscale"
-	  MaskValueString	  "traise|tstep|fs(1)"
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    49
+	    $ClassName		    "Simulink.Mask"
+	    Type		    "Ramp fault"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      3
+	      Object {
+		$ObjectID		50
+		Type			"edit"
+		Name			"traise"
+		Prompt			"Fault ramp duration"
+		Value			"traise"
+	      }
+	      Object {
+		$ObjectID		51
+		Type			"edit"
+		Name			"tstep"
+		Prompt			"Fault initiation time"
+		Value			"tstep"
+	      }
+	      Object {
+		$ObjectID		52
+		Type			"edit"
+		Name			"fault"
+		Prompt			"Fault size"
+		Value			"fs(1)"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
 	  System {
 	    Name		    "Rampfel fh1"
-	    Location		    [578, 205, 1076, 505]
+	    Location		    [548, 93, 1102, 577]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2460,20 +2801,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp"
-	      SID		      83
+	      SID		      "83"
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -1
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -2482,20 +2816,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp1"
-	      SID		      84
+	      SID		      "84"
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -2
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -2504,9 +2831,10 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum3"
-	      SID		      85
+	      SID		      "85"
 	      Ports		      [2, 1]
 	      Position		      [140, 55, 160, 75]
+	      ZOrder		      -3
 	      ShowName		      off
 	      IconShape		      "round"
 	      Inputs		      "|+-"
@@ -2514,8 +2842,9 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "f"
-	      SID		      86
+	      SID		      "86"
 	      Position		      [220, 58, 250, 72]
+	      ZOrder		      -4
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -2543,9 +2872,10 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Rampfel fh2"
-	  SID			  87
+	  SID			  "87"
 	  Ports			  [0, 1]
 	  Position		  [185, 234, 225, 266]
+	  ZOrder		  -13
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -2553,24 +2883,41 @@ Model {
 	  Opaque		  off
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
-	  MaskType		  "Ramp fault"
-	  MaskPromptString	  "Fault ramp duration|Fault initiation time|Fault size"
-	  MaskStyleString	  "edit,edit,edit"
-	  MaskTunableValueString  "on,on,on"
-	  MaskCallbackString	  "||"
-	  MaskEnableString	  "on,on,on"
-	  MaskVisibilityString	  "on,on,on"
-	  MaskToolTipString	  "on,on,on"
-	  MaskVariables		  "traise=@1;tstep=@2;fault=@3;"
-	  MaskIconFrame		  on
-	  MaskIconOpaque	  on
-	  MaskIconRotate	  "none"
-	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "autoscale"
-	  MaskValueString	  "traise|tstep|fs(2)"
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    53
+	    $ClassName		    "Simulink.Mask"
+	    Type		    "Ramp fault"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      3
+	      Object {
+		$ObjectID		54
+		Type			"edit"
+		Name			"traise"
+		Prompt			"Fault ramp duration"
+		Value			"traise"
+	      }
+	      Object {
+		$ObjectID		55
+		Type			"edit"
+		Name			"tstep"
+		Prompt			"Fault initiation time"
+		Value			"tstep"
+	      }
+	      Object {
+		$ObjectID		56
+		Type			"edit"
+		Name			"fault"
+		Prompt			"Fault size"
+		Value			"fs(2)"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
 	  System {
 	    Name		    "Rampfel fh2"
-	    Location		    [578, 205, 1076, 505]
+	    Location		    [548, 93, 1102, 577]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2586,20 +2933,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp"
-	      SID		      88
+	      SID		      "88"
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -1
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -2608,20 +2948,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp1"
-	      SID		      89
+	      SID		      "89"
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -2
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -2630,9 +2963,10 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum3"
-	      SID		      90
+	      SID		      "90"
 	      Ports		      [2, 1]
 	      Position		      [140, 55, 160, 75]
+	      ZOrder		      -3
 	      ShowName		      off
 	      IconShape		      "round"
 	      Inputs		      "|+-"
@@ -2640,8 +2974,9 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "f"
-	      SID		      91
+	      SID		      "91"
 	      Position		      [220, 58, 250, 72]
+	      ZOrder		      -4
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -2669,9 +3004,10 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Rampfel fl1"
-	  SID			  92
+	  SID			  "92"
 	  Ports			  [0, 1]
 	  Position		  [175, 454, 215, 486]
+	  ZOrder		  -14
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -2679,24 +3015,41 @@ Model {
 	  Opaque		  off
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
-	  MaskType		  "Ramp fault"
-	  MaskPromptString	  "Fault ramp duration|Fault initiation time|Fault size"
-	  MaskStyleString	  "edit,edit,edit"
-	  MaskTunableValueString  "on,on,on"
-	  MaskCallbackString	  "||"
-	  MaskEnableString	  "on,on,on"
-	  MaskVisibilityString	  "on,on,on"
-	  MaskToolTipString	  "on,on,on"
-	  MaskVariables		  "traise=@1;tstep=@2;fault=@3;"
-	  MaskIconFrame		  on
-	  MaskIconOpaque	  on
-	  MaskIconRotate	  "none"
-	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "autoscale"
-	  MaskValueString	  "traise|tstep|fl(1)"
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    57
+	    $ClassName		    "Simulink.Mask"
+	    Type		    "Ramp fault"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      3
+	      Object {
+		$ObjectID		58
+		Type			"edit"
+		Name			"traise"
+		Prompt			"Fault ramp duration"
+		Value			"traise"
+	      }
+	      Object {
+		$ObjectID		59
+		Type			"edit"
+		Name			"tstep"
+		Prompt			"Fault initiation time"
+		Value			"tstep"
+	      }
+	      Object {
+		$ObjectID		60
+		Type			"edit"
+		Name			"fault"
+		Prompt			"Fault size"
+		Value			"fl(1)"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
 	  System {
 	    Name		    "Rampfel fl1"
-	    Location		    [578, 205, 1076, 505]
+	    Location		    [548, 93, 1102, 577]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2712,20 +3065,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp"
-	      SID		      93
+	      SID		      "93"
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -1
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -2734,20 +3080,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp1"
-	      SID		      94
+	      SID		      "94"
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -2
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -2756,9 +3095,10 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum3"
-	      SID		      95
+	      SID		      "95"
 	      Ports		      [2, 1]
 	      Position		      [140, 55, 160, 75]
+	      ZOrder		      -3
 	      ShowName		      off
 	      IconShape		      "round"
 	      Inputs		      "|+-"
@@ -2766,8 +3106,9 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "f"
-	      SID		      96
+	      SID		      "96"
 	      Position		      [220, 58, 250, 72]
+	      ZOrder		      -4
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -2795,9 +3136,10 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Rampfel fl2"
-	  SID			  97
+	  SID			  "97"
 	  Ports			  [0, 1]
 	  Position		  [175, 504, 215, 536]
+	  ZOrder		  -15
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -2805,24 +3147,41 @@ Model {
 	  Opaque		  off
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
-	  MaskType		  "Ramp fault"
-	  MaskPromptString	  "Fault ramp duration|Fault initiation time|Fault size"
-	  MaskStyleString	  "edit,edit,edit"
-	  MaskTunableValueString  "on,on,on"
-	  MaskCallbackString	  "||"
-	  MaskEnableString	  "on,on,on"
-	  MaskVisibilityString	  "on,on,on"
-	  MaskToolTipString	  "on,on,on"
-	  MaskVariables		  "traise=@1;tstep=@2;fault=@3;"
-	  MaskIconFrame		  on
-	  MaskIconOpaque	  on
-	  MaskIconRotate	  "none"
-	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "autoscale"
-	  MaskValueString	  "traise|tstep|fl(2)"
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    61
+	    $ClassName		    "Simulink.Mask"
+	    Type		    "Ramp fault"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      3
+	      Object {
+		$ObjectID		62
+		Type			"edit"
+		Name			"traise"
+		Prompt			"Fault ramp duration"
+		Value			"traise"
+	      }
+	      Object {
+		$ObjectID		63
+		Type			"edit"
+		Name			"tstep"
+		Prompt			"Fault initiation time"
+		Value			"tstep"
+	      }
+	      Object {
+		$ObjectID		64
+		Type			"edit"
+		Name			"fault"
+		Prompt			"Fault size"
+		Value			"fl(2)"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
 	  System {
 	    Name		    "Rampfel fl2"
-	    Location		    [578, 205, 1076, 505]
+	    Location		    [548, 93, 1102, 577]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2838,20 +3197,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp"
-	      SID		      98
+	      SID		      "98"
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -1
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -2860,20 +3212,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp1"
-	      SID		      99
+	      SID		      "99"
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -2
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -2882,9 +3227,10 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum3"
-	      SID		      100
+	      SID		      "100"
 	      Ports		      [2, 1]
 	      Position		      [140, 55, 160, 75]
+	      ZOrder		      -3
 	      ShowName		      off
 	      IconShape		      "round"
 	      Inputs		      "|+-"
@@ -2892,8 +3238,9 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "f"
-	      SID		      101
+	      SID		      "101"
 	      Position		      [220, 58, 250, 72]
+	      ZOrder		      -4
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -2921,9 +3268,10 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Rampfel fl3"
-	  SID			  102
+	  SID			  "102"
 	  Ports			  [0, 1]
 	  Position		  [175, 559, 215, 591]
+	  ZOrder		  -16
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -2931,24 +3279,41 @@ Model {
 	  Opaque		  off
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
-	  MaskType		  "Ramp fault"
-	  MaskPromptString	  "Fault ramp duration|Fault initiation time|Fault size"
-	  MaskStyleString	  "edit,edit,edit"
-	  MaskTunableValueString  "on,on,on"
-	  MaskCallbackString	  "||"
-	  MaskEnableString	  "on,on,on"
-	  MaskVisibilityString	  "on,on,on"
-	  MaskToolTipString	  "on,on,on"
-	  MaskVariables		  "traise=@1;tstep=@2;fault=@3;"
-	  MaskIconFrame		  on
-	  MaskIconOpaque	  on
-	  MaskIconRotate	  "none"
-	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "autoscale"
-	  MaskValueString	  "traise|tstep|fl(3)"
+	  Object {
+	    $PropName		    "MaskObject"
+	    $ObjectID		    65
+	    $ClassName		    "Simulink.Mask"
+	    Type		    "Ramp fault"
+	    Array {
+	      Type		      "Simulink.MaskParameter"
+	      Dimension		      3
+	      Object {
+		$ObjectID		66
+		Type			"edit"
+		Name			"traise"
+		Prompt			"Fault ramp duration"
+		Value			"traise"
+	      }
+	      Object {
+		$ObjectID		67
+		Type			"edit"
+		Name			"tstep"
+		Prompt			"Fault initiation time"
+		Value			"tstep"
+	      }
+	      Object {
+		$ObjectID		68
+		Type			"edit"
+		Name			"fault"
+		Prompt			"Fault size"
+		Value			"fl(3)"
+	      }
+	      PropName		      "Parameters"
+	    }
+	  }
 	  System {
 	    Name		    "Rampfel fl3"
-	    Location		    [578, 205, 1076, 505]
+	    Location		    [548, 93, 1102, 577]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2964,20 +3329,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp"
-	      SID		      103
+	      SID		      "103"
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -1
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -2986,20 +3344,13 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Ramp1"
-	      SID		      104
+	      SID		      "104"
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
-	      LibraryVersion	      "1.762"
+	      ZOrder		      -2
+	      LibraryVersion	      "1.281"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
-	      ShowPortLabels	      "FromPortIcon"
-	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
-	      RTWMemSecFuncInitTerm   "Inherit from model"
-	      RTWMemSecFuncExecute    "Inherit from model"
-	      RTWMemSecDataConstants  "Inherit from model"
-	      RTWMemSecDataInternal   "Inherit from model"
-	      RTWMemSecDataParameters "Inherit from model"
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -3008,9 +3359,10 @@ Model {
 	    Block {
 	      BlockType		      Sum
 	      Name		      "Sum3"
-	      SID		      105
+	      SID		      "105"
 	      Ports		      [2, 1]
 	      Position		      [140, 55, 160, 75]
+	      ZOrder		      -3
 	      ShowName		      off
 	      IconShape		      "round"
 	      Inputs		      "|+-"
@@ -3018,8 +3370,9 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "f"
-	      SID		      106
+	      SID		      "106"
 	      Position		      [220, 58, 250, 72]
+	      ZOrder		      -4
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -3047,52 +3400,55 @@ Model {
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum3"
-	  SID			  107
+	  SID			  "107"
 	  Ports			  [2, 1]
 	  Position		  [1030, 435, 1050, 455]
+	  ZOrder		  -17
 	  ShowName		  off
 	  IconShape		  "round"
 	  Inputs		  "|++"
 	}
 	Block {
-	  BlockType		  "M-S-Function"
+	  BlockType		  M-S-Function
 	  Name			  "System of water tanks"
-	  SID			  108
+	  SID			  "108"
 	  Ports			  [2, 4]
 	  Position		  [555, 421, 615, 474]
+	  ZOrder		  -18
 	  FunctionName		  "watertank"
 	  Parameters		  "watertankparams"
 	}
 	Block {
 	  BlockType		  ToWorkspace
 	  Name			  "To Workspace4"
-	  SID			  109
+	  SID			  "109"
 	  Ports			  [1]
 	  Position		  [525, 770, 565, 800]
+	  ZOrder		  -19
 	  NamePlacement		  "alternate"
 	  ShowName		  off
 	  VariableName		  "f"
 	  MaxDataPoints		  "inf"
 	  SampleTime		  "0.1"
-	  SaveFormat		  "Array"
 	}
 	Block {
 	  BlockType		  ToWorkspace
 	  Name			  "To Workspace6"
-	  SID			  110
+	  SID			  "110"
 	  Ports			  [1]
 	  Position		  [1115, 370, 1175, 400]
+	  ZOrder		  -20
 	  ShowName		  off
 	  VariableName		  "foo"
 	  MaxDataPoints		  "inf"
 	  SampleTime		  "0.1"
-	  SaveFormat		  "Array"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "y_meas"
-	  SID			  111
+	  SID			  "111"
 	  Position		  [1130, 438, 1160, 452]
+	  ZOrder		  -21
 	  IconDisplay		  "Port number"
 	}
 	Line {
@@ -3257,38 +3613,47 @@ Model {
 	  DstPort		  1
 	}
 	Annotation {
+	  SID			  "143"
 	  Name			  "aktuatorfel ( fa )"
 	  Position		  [416, 134]
 	}
 	Annotation {
+	  SID			  "144"
 	  Name			  "Sensorfel höjd wt1 ( fh1)"
 	  Position		  [373, 187]
 	}
 	Annotation {
+	  SID			  "145"
 	  Name			  "Sensorfel höjd wt2 ( fh2)"
 	  Position		  [394, 238]
 	}
 	Annotation {
+	  SID			  "146"
 	  Name			  "Sensorfel FS2 ( ff2 )"
 	  Position		  [389, 348]
 	}
 	Annotation {
+	  SID			  "147"
 	  Name			  " "
 	  Position		  [368, 338]
 	}
 	Annotation {
+	  SID			  "148"
 	  Name			  "y1"
 	  Position		  [700, 154]
 	}
 	Annotation {
+	  SID			  "149"
 	  Name			  "y2"
 	  Position		  [684, 328]
 	}
 	Annotation {
+	  SID			  "150"
 	  Name			  "y4"
 	  Position		  [692, 668]
 	}
 	Annotation {
+	  SID			  "151"
 	  Name			  "y3"
 	  Position		  [704, 506]
 	}
@@ -3297,69 +3662,70 @@ Model {
     Block {
       BlockType		      ToWorkspace
       Name		      "To Workspace1"
-      SID		      112
+      SID		      "112"
       Ports		      [1]
       Position		      [475, 140, 535, 170]
+      ZOrder		      -6
       ShowName		      off
       VariableName	      "y"
       MaxDataPoints	      "inf"
       SampleTime	      "0.1"
-      SaveFormat	      "Array"
     }
     Block {
       BlockType		      ToWorkspace
       Name		      "To Workspace2"
-      SID		      113
+      SID		      "113"
       Ports		      [1]
       Position		      [475, 85, 535, 115]
+      ZOrder		      -7
       ShowName		      off
       VariableName	      "styr"
       MaxDataPoints	      "inf"
       SampleTime	      "0.1"
-      SaveFormat	      "Array"
     }
     Block {
       BlockType		      ToWorkspace
       Name		      "To Workspace3"
-      SID		      114
+      SID		      "114"
       Ports		      [1]
       Position		      [480, 265, 540, 295]
+      ZOrder		      -8
       ShowName		      off
       VariableName	      "res"
       MaxDataPoints	      "inf"
       SampleTime	      "0.1"
-      SaveFormat	      "Array"
     }
     Block {
       BlockType		      ToWorkspace
       Name		      "To Workspace5"
-      SID		      115
+      SID		      "115"
       Ports		      [1]
       Position		      [480, 310, 540, 340]
+      ZOrder		      -9
       ShowName		      off
       VariableName	      "T"
       MaxDataPoints	      "inf"
       SampleTime	      "0.1"
-      SaveFormat	      "Array"
     }
     Block {
       BlockType		      ToWorkspace
       Name		      "To Workspace6"
-      SID		      116
+      SID		      "116"
       Ports		      [1]
       Position		      [475, 45, 535, 75]
+      ZOrder		      -10
       ShowName		      off
       VariableName	      "tut"
       MaxDataPoints	      "inf"
       SampleTime	      "0.1"
-      SaveFormat	      "Array"
     }
     Block {
       BlockType		      SubSystem
       Name		      "Treshold"
-      SID		      117
+      SID		      "117"
       Ports		      [1, 1]
       Position		      [405, 303, 430, 347]
+      ZOrder		      -11
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -3369,7 +3735,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Treshold"
-	Location		[775, 401, 1307, 786]
+	Location		[745, 289, 1333, 858]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -3385,39 +3751,42 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "r"
-	  SID			  118
+	  SID			  "118"
 	  Position		  [20, 53, 50, 67]
+	  ZOrder		  -1
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Constant
 	  Name			  "Constant"
-	  SID			  120
+	  SID			  "120"
 	  Position		  [80, 110, 110, 140]
+	  ZOrder		  -2
 	}
 	Block {
 	  BlockType		  RelationalOperator
 	  Name			  "Relational\nOperator"
-	  SID			  121
+	  SID			  "121"
 	  Ports			  [2, 1]
 	  Position		  [135, 52, 165, 83]
+	  ZOrder		  -3
 	  Operator		  ">"
 	}
 	Block {
 	  BlockType		  Math
 	  Name			  "Square"
-	  SID			  124
+	  SID			  "124"
 	  Ports			  [1, 1]
 	  Position		  [80, 45, 110, 75]
+	  ZOrder		  -4
 	  Operator		  "square"
-	  OutDataType		  "fixdt(1, 16)"
-	  OutScaling		  "2^0"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "d"
-	  SID			  122
+	  SID			  "122"
 	  Position		  [215, 63, 245, 77]
+	  ZOrder		  -5
 	  IconDisplay		  "Port number"
 	}
 	Line {
@@ -3477,17 +3846,14 @@ Model {
       SrcPort		      1
       Points		      [15, 0]
       Branch {
-	Points			[0, 0]
-	Branch {
-	  Points		  [0, 140]
-	  DstBlock		  "Diagnosis system"
-	  DstPort		  2
-	}
-	Branch {
-	  Points		  [0, -55]
-	  DstBlock		  "To Workspace2"
-	  DstPort		  1
-	}
+	Points			[0, 140]
+	DstBlock		"Diagnosis system"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, -55]
+	DstBlock		"To Workspace2"
+	DstPort			1
       }
       Branch {
 	DstBlock		"Nonlinear model\nwith faults"
@@ -3509,26 +3875,18 @@ Model {
 	DstPort			1
       }
       Branch {
-	Points			[0, 65]
+	Points			[0, 70]
 	Branch {
-	  Points		  [0, 5; -265, 0]
+	  Points		  [-265, 0]
 	  DstBlock		  "Controller"
 	  DstPort		  2
 	}
 	Branch {
-	  Points		  [0, 15; -170, 0]
+	  Points		  [0, 10; -170, 0]
 	  DstBlock		  "Diagnosis system"
 	  DstPort		  1
 	}
       }
-    }
-    Annotation {
-      Name		      "TSFS06: Laboration 3\n- olinjär diagnos"
-      Position		      [23, 41]
-      HorizontalAlignment     "left"
-      DropShadow	      on
-      FontName		      "times"
-      FontSize		      24
     }
   }
 }
