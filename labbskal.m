@@ -96,12 +96,26 @@ c1params.x0   = -h1Init; % Initialvärde för residualgeneratorns tillstånd
 c1params.alfa = 2;       % Placering av polen i -alfa
 c1params.d    = d;       % Modellparametrar
 
+%% Sätt parametrar för konsistensrelation
+c2params.x0   = -h1Init; % Initialvärde för residualgeneratorns tillstånd
+c2params.alfa = 2;       % Placering av polen i -alfa
+c2params.d    = d;       % Modellparametrar
+
+%% Sätt parametrar för konsistensrelation
+c3params.x0   = -h1Init; % Initialvärde för residualgeneratorns tillstånd
+c3params.alfa = 2;       % Placering av polen i -alfa
+c3params.d    = d;       % Modellparametrar
+
+%% Sätt parametrar för konsistensrelation
+c4params.x0   = -h1Init; % Initialvärde för residualgeneratorns tillstånd
+c4params.alfa = 2;       % Placering av polen i -alfa
+c4params.d    = d;       % Modellparametrar
 
 %% ==================================================
 %  Tröskelsättning
 %  ==================================================
 
-Jnorm=ones(1,6); % Default är alla trösklar satta till 1
+Jnorm=ones(1,10); % Default är alla trösklar satta till 1
 
 %% ==================================================
 %  Simulera systemet

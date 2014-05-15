@@ -1,16 +1,16 @@
 Model {
   Name			  "TSFS06Lab3"
-  Version		  8.0
+  Version		  8.2
   MdlSubVersion		  0
+  SavedCharacterEncoding  "ISO-8859-1"
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.313"
+    ComputedModelVersion    "1.318"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
-  SavedCharacterEncoding  "windows-1252"
   SaveDefaultBlockParams  on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
@@ -30,7 +30,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [621.0, 206.0, 870.0, 629.0]
+      Location		      [182.0, 167.0, 874.0, 657.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -39,7 +39,7 @@ Model {
 	DockPosition		"Left"
 	Width			[50]
 	Height			[50]
-	Filter			[8]
+	Filter			[9]
       }
       Object {
 	$PropName		"ExplorerBarInfo"
@@ -54,9 +54,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkSubsys"
 	LoadSaveID		"17"
-	Extents			[818.0, 453.0]
+	Extents			[834.0, 486.0]
 	ZoomFactor		[1.0]
-	Offset			[0.0, 0.0]
+	Offset			[-61.75, -4.75]
       }
     }
   }
@@ -66,9 +66,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "adalu838"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu May 15 10:55:23 2014"
-  RTWModifiedTimeStamp	  322045947
-  ModelVersionFormat	  "1.%<AutoIncrement:313>"
+  LastModifiedDate	  "Thu May 15 13:45:34 2014"
+  RTWModifiedTimeStamp	  322062329
+  ModelVersionFormat	  "1.%<AutoIncrement:318>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -94,6 +94,11 @@ Model {
   BrowserShowLibraryLinks off
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
+  PauseTimes		  "5"
+  NumberOfSteps		  1
+  SnapshotBufferSize	  10
+  SnapshotInterval	  10
+  NumberOfLastSnapshots	  0
   LinearizationMsg	  "none"
   Profile		  off
   ParamWorkspaceSource	  "MATLABWorkspace"
@@ -126,6 +131,7 @@ Model {
   CovNameIncrementing	  off
   CovHtmlReporting	  on
   CovForceBlockReductionOff on
+  CovEnableCumulative	  on
   covSaveCumulativeToWorkspaceVar on
   CovSaveSingleToWorkspaceVar on
   CovCumulativeVarName	  "covCumulativeData"
@@ -162,13 +168,13 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      7
-      Version		      "1.12.1"
+      Version		      "1.13.1"
       Array {
 	Type			"Handle"
 	Dimension		8
 	Simulink.SolverCC {
 	  $ObjectID		  8
-	  Version		  "1.12.1"
+	  Version		  "1.13.1"
 	  StartTime		  "0.0"
 	  StopTime		  "40"
 	  AbsTol		  "1e-6"
@@ -203,7 +209,7 @@ Model {
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  9
-	  Version		  "1.12.1"
+	  Version		  "1.13.1"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -235,7 +241,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  10
-	  Version		  "1.12.1"
+	  Version		  "1.13.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    4
@@ -251,6 +257,7 @@ Model {
 	  InlineParams		  off
 	  UseIntDivNetSlope	  off
 	  UseFloatMulNetSlope	  off
+	  DefaultUnderspecifiedDataType	"double"
 	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  on
@@ -270,6 +277,7 @@ Model {
 	  SystemCodeInlineAuto	  off
 	  StateBitsets		  off
 	  DataBitsets		  off
+	  ActiveStateOutputEnumStorageType "Native Integer"
 	  UseTempVars		  off
 	  ZeroExternalMemoryAtStartup on
 	  ZeroInternalMemoryAtStartup on
@@ -287,7 +295,7 @@ Model {
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  11
-	  Version		  "1.12.1"
+	  Version		  "1.13.1"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -361,7 +369,7 @@ Model {
 	  SimStateInterfaceChecksumMismatchMsg "warning"
 	  SimStateOlderReleaseMsg "error"
 	  InitInArrayFormatMsg	  "warning"
-	  StrictBusMsg		  "None"
+	  StrictBusMsg		  "ErrorLevel1"
 	  BusNameAdapt		  "WarnAndRepair"
 	  NonBusSignalsTreatedAsBus "none"
 	  LoggingUnavailableSignals "error"
@@ -377,11 +385,12 @@ Model {
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  12
-	  Version		  "1.12.1"
+	  Version		  "1.13.1"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
 	  ProdBitPerLong	  32
+	  ProdBitPerLongLong	  64
 	  ProdBitPerFloat	  32
 	  ProdBitPerDouble	  64
 	  ProdBitPerPointer	  32
@@ -391,17 +400,20 @@ Model {
 	  ProdEndianess		  "Unspecified"
 	  ProdWordSize		  32
 	  ProdShiftRightIntArith  on
+	  ProdLongLongMode	  off
 	  ProdHWDeviceType	  "32-bit Generic"
 	  TargetBitPerChar	  8
 	  TargetBitPerShort	  16
 	  TargetBitPerInt	  32
 	  TargetBitPerLong	  32
+	  TargetBitPerLongLong	  64
 	  TargetBitPerFloat	  32
 	  TargetBitPerDouble	  64
 	  TargetBitPerPointer	  32
 	  TargetLargestAtomicInteger "Char"
 	  TargetLargestAtomicFloat "None"
 	  TargetShiftRightIntArith on
+	  TargetLongLongMode	  off
 	  TargetIntDivRoundTo	  "Undefined"
 	  TargetEndianess	  "Unspecified"
 	  TargetWordSize	  32
@@ -414,7 +426,7 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  13
-	  Version		  "1.12.1"
+	  Version		  "1.13.1"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
 	  EnableParallelModelReferenceBuilds off
@@ -429,7 +441,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  14
-	  Version		  "1.12.1"
+	  Version		  "1.13.1"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -440,11 +452,12 @@ Model {
 	  SimUseLocalCustomCode	  off
 	  SimParseCustomCode	  on
 	  SimBuildMode		  "sf_incremental_build"
+	  SimGenImportedTypeDefs  off
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  15
-	  Version		  "1.12.1"
+	  Version		  "1.13.1"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    2
@@ -453,11 +466,15 @@ Model {
 	    PropName		    "DisabledProps"
 	  }
 	  SystemTargetFile	  "grt.tlc"
+	  TLCOptions		  ""
 	  GenCodeOnly		  off
 	  MakeCommand		  "make_rtw"
 	  GenerateMakefile	  on
 	  PackageGeneratedCodeAndArtifacts off
+	  PackageName		  ""
 	  TemplateMakefile	  "grt_default_tmf"
+	  PostCodeGenCommand	  ""
+	  Description		  ""
 	  GenerateReport	  off
 	  SaveLog		  off
 	  RTWVerbose		  on
@@ -468,9 +485,20 @@ Model {
 	  TLCAssert		  off
 	  ProcessScriptMode	  "Default"
 	  ConfigurationMode	  "Optimized"
+	  ProcessScript		  ""
+	  ConfigurationScript	  ""
 	  ConfigAtBuild		  off
 	  RTWUseLocalCustomCode	  off
 	  RTWUseSimCustomCode	  off
+	  CustomSourceCode	  ""
+	  CustomHeaderCode	  ""
+	  CustomInclude		  ""
+	  CustomSource		  ""
+	  CustomLibrary		  ""
+	  CustomInitializer	  ""
+	  CustomTerminator	  ""
+	  Toolchain		  "Automatically locate an installed toolchain"
+	  BuildConfiguration	  "Faster Builds"
 	  IncludeHyperlinkInReport off
 	  LaunchReport		  off
 	  PortableWordSizes	  off
@@ -480,6 +508,7 @@ Model {
 	  CodeExecutionProfileVariable "executionProfile"
 	  CodeProfilingSaveOptions "SummaryOnly"
 	  CodeProfilingInstrumentation off
+	  SILDebugging		  off
 	  TargetLang		  "C"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
 	  IncludeERTFirstTime	  on
@@ -493,14 +522,17 @@ Model {
 	  GenerateCodeMetricsReport off
 	  GenerateCodeReplacementReport	off
 	  RTWCompilerOptimization "Off"
+	  RTWCustomCompilerOptimizations ""
 	  CheckMdlBeforeBuild	  "Off"
 	  CustomRebuildMode	  "OnUpdate"
+	  DataInitializer	  ""
+	  SharedConstantsCachingThreshold 1024
 	  Array {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      16
-	      Version		      "1.12.1"
+	      Version		      "1.13.1"
 	      Array {
 		Type			"Cell"
 		Dimension		16
@@ -539,13 +571,14 @@ Model {
 	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
-	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrType     "$N$R$M_T"
 	      CustomSymbolStrField    "$N$M"
 	      CustomSymbolStrFcn      "$R$N$M$F"
 	      CustomSymbolStrFcnArg   "rt$I$N$M"
 	      CustomSymbolStrBlkIO    "rtb_$N$M"
 	      CustomSymbolStrTmpVar   "$N$M"
 	      CustomSymbolStrMacro    "$R$N$M"
+	      CustomSymbolStrUtil     "$N$C"
 	      DefineNamingRule	      "None"
 	      ParamNamingRule	      "None"
 	      SignalNamingRule	      "None"
@@ -554,7 +587,7 @@ Model {
 	      SimulinkBlockComments   on
 	      MATLABSourceComments    off
 	      EnableCustomComments    off
-	      InternalIdentifier      "Classic"
+	      InternalIdentifier      "Shortened"
 	      InlinedPrmAccess	      "Literals"
 	      ReqsInCode	      off
 	      UseSimReservedNames     off
@@ -562,7 +595,7 @@ Model {
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      17
-	      Version		      "1.12.1"
+	      Version		      "1.13.1"
 	      Array {
 		Type			"Cell"
 		Dimension		14
@@ -573,13 +606,13 @@ Model {
 		Cell			"GenerateSampleERTMain"
 		Cell			"GenerateTestInterfaces"
 		Cell			"ModelStepFunctionPrototypeControlCompliant"
-		Cell			"MultiInstanceERTCode"
+		Cell			"SupportNonInlinedSFcns"
 		Cell			"PurelyIntegerCode"
 		Cell			"PortableWordSizes"
 		Cell			"SupportComplex"
 		Cell			"SupportAbsoluteTime"
 		Cell			"SupportContinuousTime"
-		Cell			"SupportNonInlinedSFcns"
+		Cell			"GenerateAllocFcn"
 		PropName		"DisabledProps"
 	      }
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
@@ -618,10 +651,12 @@ Model {
 	      SupportVariableSizeSignals off
 	      EnableShiftOperators    on
 	      ParenthesesLevel	      "Nominal"
+	      MATLABClassNameForMDSCustomization "Simulink.SoftwareTarget.GRTCustomization"
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
 	      GRTInterface	      on
+	      GenerateAllocFcn	      off
 	      UseMalloc		      off
 	      ExtMode		      off
 	      ExtModeStaticAlloc      off
@@ -886,7 +921,7 @@ Model {
       B			      "1"
       C			      "1"
       D			      "1"
-      X0		      "0"
+      X0		      "0.0"
       AbsoluteTolerance	      "auto"
       ContinuousStateAttributes	"''"
       Realization	      "auto"
@@ -901,6 +936,7 @@ Model {
       SystemSampleTime	      "-1"
       RTWFcnNameOpts	      "Auto"
       RTWFileNameOpts	      "Auto"
+      FunctionInterfaceSpec   "void_void"
       RTWMemSecFuncInitTerm   "Inherit from model"
       RTWMemSecFuncExecute    "Inherit from model"
       RTWMemSecDataConstants  "Inherit from model"
@@ -913,6 +949,7 @@ Model {
       SFBlockType	      "NONE"
       Variant		      off
       GeneratePreprocessorConditionals off
+      ContentPreviewEnabled   off
     }
     Block {
       BlockType		      Sum
@@ -963,7 +1000,7 @@ Model {
   }
   System {
     Name		    "TSFS06Lab3"
-    Location		    [621, 206, 1491, 835]
+    Location		    [182, 167, 1056, 824]
     Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -977,7 +1014,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "155"
+    SIDHighWatermark	    "160"
     Block {
       BlockType		      Clock
       Name		      "Clock"
@@ -1053,6 +1090,7 @@ Model {
 	  LibraryVersion	  "1.13"
 	  SourceBlock		  "simulink_need_slupdate/PID Controller\n(with Approximate\nDerivative)"
 	  SourceType		  "PID(2) Controller"
+	  ContentPreviewEnabled	  off
 	  P			  "10"
 	  I			  "4"
 	  D			  "0"
@@ -1122,24 +1160,28 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
+	  ZOrder		  1
 	  SrcBlock		  "Demux"
 	  SrcPort		  3
 	  DstBlock		  "Terminator1"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  2
 	  SrcBlock		  "Demux"
 	  SrcPort		  2
 	  DstBlock		  "Terminator2"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  3
 	  SrcBlock		  "y"
 	  SrcPort		  1
 	  DstBlock		  "Demux"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  4
 	  SrcBlock		  "Demux"
 	  SrcPort		  4
 	  Points		  [30, 0]
@@ -1147,30 +1189,35 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  5
 	  SrcBlock		  "ref"
 	  SrcPort		  1
 	  DstBlock		  "Sum"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  6
 	  SrcBlock		  "Sum"
 	  SrcPort		  1
 	  DstBlock		  "PID Controller\n(with Approximate\nDerivative)"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  7
 	  SrcBlock		  "PID Controller\n(with Approximate\nDerivative)"
 	  SrcPort		  1
 	  DstBlock		  "Saturation"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  8
 	  SrcBlock		  "Saturation"
 	  SrcPort		  1
 	  DstBlock		  "u"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  9
 	  SrcBlock		  "Demux"
 	  SrcPort		  1
 	  Points		  [25, 0]
@@ -1178,6 +1225,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  10
 	  SrcBlock		  "Transport\nDelay"
 	  SrcPort		  1
 	  Points		  [5, 0; 0, -20]
@@ -1202,7 +1250,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Diagnosis system"
-	Location		[621, 206, 1491, 835]
+	Location		[182, 167, 1056, 824]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1248,7 +1296,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Consistency Relations"
-	    Location		    [621, 206, 1491, 835]
+	    Location		    [182, 167, 1056, 824]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1265,7 +1313,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "y_meas"
 	      SID		      "18"
-	      Position		      [20, 108, 50, 122]
+	      Position		      [20, 148, 50, 162]
 	      ZOrder		      -1
 	      IconDisplay	      "Port number"
 	    }
@@ -1273,7 +1321,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "u"
 	      SID		      "19"
-	      Position		      [20, 38, 50, 52]
+	      Position		      [20, 78, 50, 92]
 	      ZOrder		      -2
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1283,7 +1331,7 @@ Model {
 	      Name		      "Enable"
 	      SID		      "20"
 	      Ports		      []
-	      Position		      [475, 20, 495, 40]
+	      Position		      [340, 20, 360, 40]
 	      ZOrder		      -3
 	    }
 	    Block {
@@ -1291,7 +1339,7 @@ Model {
 	      Name		      "Approximativ\nderivering"
 	      SID		      "21"
 	      Ports		      [1, 1]
-	      Position		      [80, 114, 120, 146]
+	      Position		      [110, 139, 150, 171]
 	      ZOrder		      -4
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
@@ -1362,6 +1410,7 @@ Model {
 		  BlockType		  StateSpace
 		  Name			  "State-Space"
 		  SID			  "136"
+		  Ports			  [1, 1]
 		  Position		  [195, 48, 255, 82]
 		  ZOrder		  -4
 		  A			  "s"
@@ -1373,6 +1422,7 @@ Model {
 		  BlockType		  StateSpace
 		  Name			  "State-Space1"
 		  SID			  "138"
+		  Ports			  [1, 1]
 		  Position		  [195, 103, 255, 137]
 		  ZOrder		  -5
 		  A			  "s"
@@ -1384,6 +1434,7 @@ Model {
 		  BlockType		  StateSpace
 		  Name			  "State-Space2"
 		  SID			  "139"
+		  Ports			  [1, 1]
 		  Position		  [195, 158, 255, 192]
 		  ZOrder		  -6
 		  A			  "s"
@@ -1395,6 +1446,7 @@ Model {
 		  BlockType		  StateSpace
 		  Name			  "State-Space3"
 		  SID			  "140"
+		  Ports			  [1, 1]
 		  Position		  [195, 213, 255, 247]
 		  ZOrder		  -7
 		  A			  "s"
@@ -1411,60 +1463,70 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
+		  ZOrder		  1
 		  SrcBlock		  "y"
 		  SrcPort		  1
 		  DstBlock		  "Demux"
 		  DstPort		  1
 		}
 		Line {
+		  ZOrder		  2
 		  SrcBlock		  "Demux"
 		  SrcPort		  4
 		  DstBlock		  "State-Space3"
 		  DstPort		  1
 		}
 		Line {
+		  ZOrder		  3
 		  SrcBlock		  "Demux"
 		  SrcPort		  3
 		  DstBlock		  "State-Space2"
 		  DstPort		  1
 		}
 		Line {
+		  ZOrder		  4
 		  SrcBlock		  "Demux"
 		  SrcPort		  2
 		  DstBlock		  "State-Space1"
 		  DstPort		  1
 		}
 		Line {
+		  ZOrder		  5
 		  SrcBlock		  "Demux"
 		  SrcPort		  1
 		  DstBlock		  "State-Space"
 		  DstPort		  1
 		}
 		Line {
+		  ZOrder		  6
 		  SrcBlock		  "State-Space"
 		  SrcPort		  1
 		  DstBlock		  "Mux"
 		  DstPort		  1
 		}
 		Line {
+		  ZOrder		  7
 		  SrcBlock		  "State-Space1"
 		  SrcPort		  1
 		  DstBlock		  "Mux"
 		  DstPort		  2
 		}
 		Line {
+		  ZOrder		  8
 		  SrcBlock		  "State-Space2"
 		  SrcPort		  1
 		  DstBlock		  "Mux"
 		  DstPort		  3
 		}
 		Line {
+		  ZOrder		  9
 		  SrcBlock		  "State-Space3"
 		  SrcPort		  1
 		  DstBlock		  "Mux"
 		  DstPort		  4
 		}
 		Line {
+		  ZOrder		  10
 		  SrcBlock		  "Mux"
 		  SrcPort		  1
 		  DstBlock		  "yder"
@@ -1476,16 +1538,37 @@ Model {
 	      BlockType		      Fcn
 	      Name		      "Direct implementation of\nconsistency relations using approximated\nderivatives"
 	      SID		      "30"
-	      Position		      [435, 98, 475, 132]
+	      Position		      [460, 88, 500, 122]
 	      ZOrder		      -5
+	      ShowName		      off
 	      Expr		      "u(6)-d1*u(1)+d2*sqrt(u(2))"
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "Direct implementation of\nconsistency relations using approximated\nderivatives1"
+	      SID		      "156"
+	      Position		      [460, 138, 500, 172]
+	      ZOrder		      2
+	      ShowName		      off
+	      Expr		      "u(7)-d3*sqrt(u(2))+d4*sqrt(u(3))"
 	    }
 	    Block {
 	      BlockType		      ZeroPole
 	      Name		      "LP-filter"
 	      SID		      "141"
-	      Position		      [540, 97, 600, 133]
+	      Position		      [525, 87, 585, 123]
 	      ZOrder		      -6
+	      ShowName		      off
+	      Zeros		      "[]"
+	      Poles		      "[-1]"
+	    }
+	    Block {
+	      BlockType		      ZeroPole
+	      Name		      "LP-filter1"
+	      SID		      "157"
+	      Position		      [525, 137, 585, 173]
+	      ZOrder		      1
+	      ShowName		      off
 	      Zeros		      "[]"
 	      Poles		      "[-1]"
 	    }
@@ -1494,20 +1577,54 @@ Model {
 	      Name		      "M-file implementation\nof consistency relation\nwith dynamics"
 	      SID		      "32"
 	      Ports		      [1, 1]
-	      Position		      [430, 184, 485, 216]
+	      Position		      [485, 189, 540, 221]
 	      ZOrder		      -7
+	      ShowName		      off
 	      FunctionName	      "consrel1"
 	      Parameters	      "c1params"
+	    }
+	    Block {
+	      BlockType		      M-S-Function
+	      Name		      "M-file implementation\nof consistency relation\nwith dynamics1"
+	      SID		      "158"
+	      Ports		      [1, 1]
+	      Position		      [485, 239, 540, 271]
+	      ZOrder		      3
+	      ShowName		      off
+	      FunctionName	      "consrel2"
+	      Parameters	      "c2params"
+	    }
+	    Block {
+	      BlockType		      M-S-Function
+	      Name		      "M-file implementation\nof consistency relation\nwith dynamics2"
+	      SID		      "159"
+	      Ports		      [1, 1]
+	      Position		      [485, 289, 540, 321]
+	      ZOrder		      4
+	      ShowName		      off
+	      FunctionName	      "consrel3"
+	      Parameters	      "c3params"
+	    }
+	    Block {
+	      BlockType		      M-S-Function
+	      Name		      "M-file implementation\nof consistency relation\nwith dynamics3"
+	      SID		      "160"
+	      Ports		      [1, 1]
+	      Position		      [485, 339, 540, 371]
+	      ZOrder		      5
+	      ShowName		      off
+	      FunctionName	      "consrel4"
+	      Parameters	      "c4params"
 	    }
 	    Block {
 	      BlockType		      Mux
 	      Name		      "Mux"
 	      SID		      "33"
-	      Ports		      [2, 1]
-	      Position		      [650, 71, 655, 244]
+	      Ports		      [6, 1]
+	      Position		      [650, 80, 655, 380]
 	      ZOrder		      -8
 	      ShowName		      off
-	      Inputs		      "2"
+	      Inputs		      "6"
 	      DisplayOption	      "bar"
 	    }
 	    Block {
@@ -1515,7 +1632,7 @@ Model {
 	      Name		      "Mux1"
 	      SID		      "34"
 	      Ports		      [2, 1]
-	      Position		      [175, 29, 180, 96]
+	      Position		      [175, 69, 180, 136]
 	      ZOrder		      -9
 	      ShowName		      off
 	      Inputs		      "2"
@@ -1526,7 +1643,7 @@ Model {
 	      Name		      "Mux2"
 	      SID		      "35"
 	      Ports		      [2, 1]
-	      Position		      [315, 79, 320, 146]
+	      Position		      [315, 78, 320, 182]
 	      ZOrder		      -10
 	      ShowName		      off
 	      Inputs		      "2"
@@ -1536,81 +1653,169 @@ Model {
 	      BlockType		      Outport
 	      Name		      "r"
 	      SID		      "36"
-	      Position		      [705, 153, 735, 167]
+	      Position		      [715, 223, 745, 237]
 	      ZOrder		      -11
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
+	      ZOrder		      1
 	      SrcBlock		      "u"
 	      SrcPort		      1
 	      DstBlock		      "Mux1"
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      2
 	      SrcBlock		      "y_meas"
 	      SrcPort		      1
 	      Points		      [5, 0]
 	      Branch {
-		Points			[0, 15]
+		ZOrder			3
 		DstBlock		"Approximativ\nderivering"
 		DstPort			1
 	      }
 	      Branch {
+		ZOrder			4
 		Points			[0, -35]
 		DstBlock		"Mux1"
 		DstPort			2
 	      }
 	    }
 	    Line {
+	      ZOrder		      5
 	      SrcBlock		      "Mux"
 	      SrcPort		      1
 	      DstBlock		      "r"
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "M-file implementation\nof consistency relation\nwith dynamics"
-	      SrcPort		      1
-	      DstBlock		      "Mux"
-	      DstPort		      2
-	    }
-	    Line {
+	      ZOrder		      7
 	      SrcBlock		      "Mux1"
 	      SrcPort		      1
 	      Points		      [25, 0]
 	      Branch {
-		Points			[0, 135]
-		DstBlock		"M-file implementation\nof consistency relation\nwith dynamics"
-		DstPort			1
+		ZOrder			8
+		Points			[0, 100]
+		Branch {
+		  ZOrder		  39
+		  Points		  [0, 50]
+		  Branch {
+		    ZOrder		    31
+		    Points		    [0, 50]
+		    Branch {
+		    ZOrder		    34
+		    Points		    [0, 50]
+		    DstBlock		    "M-file implementation\nof consistency relation\nwith dynamics3"
+		    DstPort		    1
+		    }
+		    Branch {
+		    ZOrder		    33
+		    DstBlock		    "M-file implementation\nof consistency relation\nwith dynamics2"
+		    DstPort		    1
+		    }
+		  }
+		  Branch {
+		    ZOrder		    30
+		    DstBlock		    "M-file implementation\nof consistency relation\nwith dynamics1"
+		    DstPort		    1
+		  }
+		}
+		Branch {
+		  ZOrder		  27
+		  DstBlock		  "M-file implementation\nof consistency relation\nwith dynamics"
+		  DstPort		  1
+		}
 	      }
 	      Branch {
-		Points			[90, 0]
+		ZOrder			9
 		DstBlock		"Mux2"
 		DstPort			1
 	      }
 	    }
 	    Line {
-	      SrcBlock		      "Mux2"
-	      SrcPort		      1
-	      DstBlock		      "Direct implementation of\nconsistency relations using approximated\nderivatives"
-	      DstPort		      1
-	    }
-	    Line {
+	      ZOrder		      11
 	      SrcBlock		      "Approximativ\nderivering"
 	      SrcPort		      1
 	      DstBlock		      "Mux2"
 	      DstPort		      2
 	    }
 	    Line {
+	      ZOrder		      12
 	      SrcBlock		      "Direct implementation of\nconsistency relations using approximated\nderivatives"
 	      SrcPort		      1
 	      DstBlock		      "LP-filter"
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      14
+	      SrcBlock		      "Direct implementation of\nconsistency relations using approximated\nderivatives1"
+	      SrcPort		      1
+	      DstBlock		      "LP-filter1"
+	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      15
 	      SrcBlock		      "LP-filter"
 	      SrcPort		      1
+	      Points		      [45, 0]
 	      DstBlock		      "Mux"
 	      DstPort		      1
+	    }
+	    Line {
+	      ZOrder		      16
+	      SrcBlock		      "LP-filter1"
+	      SrcPort		      1
+	      Points		      [45, 0]
+	      DstBlock		      "Mux"
+	      DstPort		      2
+	    }
+	    Line {
+	      ZOrder		      17
+	      SrcBlock		      "M-file implementation\nof consistency relation\nwith dynamics"
+	      SrcPort		      1
+	      Points		      [90, 0]
+	      DstBlock		      "Mux"
+	      DstPort		      3
+	    }
+	    Line {
+	      ZOrder		      18
+	      SrcBlock		      "M-file implementation\nof consistency relation\nwith dynamics1"
+	      SrcPort		      1
+	      Points		      [90, 0]
+	      DstBlock		      "Mux"
+	      DstPort		      4
+	    }
+	    Line {
+	      ZOrder		      21
+	      SrcBlock		      "Mux2"
+	      SrcPort		      1
+	      Points		      [52, 0]
+	      Branch {
+		ZOrder			38
+		Points			[0, -25]
+		DstBlock		"Direct implementation of\nconsistency relations using approximated\nderivatives"
+		DstPort			1
+	      }
+	      Branch {
+		ZOrder			37
+		Points			[0, 25]
+		DstBlock		"Direct implementation of\nconsistency relations using approximated\nderivatives1"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      ZOrder		      28
+	      SrcBlock		      "M-file implementation\nof consistency relation\nwith dynamics2"
+	      SrcPort		      1
+	      DstBlock		      "Mux"
+	      DstPort		      5
+	    }
+	    Line {
+	      ZOrder		      29
+	      SrcBlock		      "M-file implementation\nof consistency relation\nwith dynamics3"
+	      SrcPort		      1
+	      DstBlock		      "Mux"
+	      DstPort		      6
 	    }
 	  }
 	}
@@ -1655,7 +1860,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Observers"
-	    Location		    [621, 206, 1491, 835]
+	    Location		    [182, 167, 1056, 824]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1672,7 +1877,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "u"
 	      SID		      "41"
-	      Position		      [20, 88, 50, 102]
+	      Position		      [20, 103, 50, 117]
 	      ZOrder		      -1
 	      IconDisplay	      "Port number"
 	    }
@@ -1680,7 +1885,7 @@ Model {
 	      BlockType		      Inport
 	      Name		      "y_meas"
 	      SID		      "42"
-	      Position		      [20, 123, 50, 137]
+	      Position		      [20, 138, 50, 152]
 	      ZOrder		      -2
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1751,7 +1956,7 @@ Model {
 	      Name		      "Mux1"
 	      SID		      "46"
 	      Ports		      [2, 1]
-	      Position		      [100, 79, 105, 146]
+	      Position		      [100, 94, 105, 161]
 	      ZOrder		      -6
 	      Inputs		      "2"
 	      DisplayOption	      "bar"
@@ -1765,71 +1970,81 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
+	      ZOrder		      1
 	      SrcBlock		      "Mux"
 	      SrcPort		      1
 	      DstBlock		      "Residuals"
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      2
 	      SrcBlock		      "y_meas"
 	      SrcPort		      1
 	      DstBlock		      "Mux1"
 	      DstPort		      2
 	    }
 	    Line {
+	      ZOrder		      3
 	      SrcBlock		      "Mux1"
 	      SrcPort		      1
 	      Points		      [22, 0]
 	      Branch {
-		Points			[0, 15]
+		ZOrder			4
+		Points			[0, -45]
+		DstBlock		" \n "
+		DstPort			1
+	      }
+	      Branch {
+		ZOrder			5
+		Points			[0, 45]
 		Branch {
+		  ZOrder		  6
 		  Points		  [0, 45]
-		  Branch {
-		    Points		    [0, 45]
-		    DstBlock		    " \n 3"
-		    DstPort		    1
-		  }
-		  Branch {
-		    DstBlock		    " \n 2"
-		    DstPort		    1
-		  }
+		  DstBlock		  " \n 3"
+		  DstPort		  1
 		}
 		Branch {
-		  DstBlock		  " \n 1"
+		  ZOrder		  7
+		  DstBlock		  " \n 2"
 		  DstPort		  1
 		}
 	      }
 	      Branch {
-		Points			[0, -30]
-		DstBlock		" \n "
+		ZOrder			8
+		DstBlock		" \n 1"
 		DstPort			1
 	      }
 	    }
 	    Line {
+	      ZOrder		      10
 	      SrcBlock		      "u"
 	      SrcPort		      1
 	      DstBlock		      "Mux1"
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      11
 	      SrcBlock		      " \n "
 	      SrcPort		      1
 	      DstBlock		      "Mux"
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      12
 	      SrcBlock		      " \n 1"
 	      SrcPort		      1
 	      DstBlock		      "Mux"
 	      DstPort		      2
 	    }
 	    Line {
+	      ZOrder		      13
 	      SrcBlock		      " \n 2"
 	      SrcPort		      1
 	      DstBlock		      "Mux"
 	      DstPort		      3
 	    }
 	    Line {
+	      ZOrder		      14
 	      SrcBlock		      " \n 3"
 	      SrcPort		      1
 	      DstBlock		      "Mux"
@@ -1846,67 +2061,80 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
+	  ZOrder		  1
 	  SrcBlock		  "y_meas"
 	  SrcPort		  1
 	  Points		  [50, 0]
 	  Branch {
+	    ZOrder		    2
 	    DstBlock		    "Observers"
 	    DstPort		    2
 	  }
 	  Branch {
+	    ZOrder		    3
 	    Points		    [0, 100]
 	    DstBlock		    "Consistency Relations"
 	    DstPort		    1
 	  }
 	}
 	Line {
+	  ZOrder		  4
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  Points		  [15, 0]
 	  Branch {
+	    ZOrder		    5
 	    DstBlock		    "Observers"
 	    DstPort		    1
 	  }
 	  Branch {
+	    ZOrder		    6
 	    Points		    [0, 185]
 	    DstBlock		    "Consistency Relations"
 	    DstPort		    2
 	  }
 	}
 	Line {
+	  ZOrder		  7
 	  SrcBlock		  "Consistency Relations"
 	  SrcPort		  1
 	  DstBlock		  "Mux1"
 	  DstPort		  2
 	}
 	Line {
+	  ZOrder		  8
 	  SrcBlock		  "Observers"
 	  SrcPort		  1
 	  DstBlock		  "Mux1"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  9
 	  SrcBlock		  "Mux1"
 	  SrcPort		  1
 	  DstBlock		  "Gain"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  10
 	  SrcBlock		  "Gain"
 	  SrcPort		  1
 	  DstBlock		  "r"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  11
 	  SrcBlock		  "Constant"
 	  SrcPort		  1
 	  Points		  [5, 0]
 	  Branch {
+	    ZOrder		    12
 	    Points		    [100, 0]
 	    DstBlock		    "Observers"
 	    DstPort		    enable
 	  }
 	  Branch {
+	    ZOrder		    13
 	    Points		    [0, 173]
 	    DstBlock		    "Consistency Relations"
 	    DstPort		    enable
@@ -1915,7 +2143,10 @@ Model {
 	Annotation {
 	  SID			  "142"
 	  Name			  "Enable"
-	  Position		  [195, 25]
+	  Position		  [195, 25, 195, 25]
+	  AutoSize		  on
+	  WordWrap		  off
+	  ZOrder		  -1
 	}
       }
     }
@@ -2032,9 +2263,10 @@ Model {
 	  Ports			  [0, 1]
 	  Position		  [885, 460, 915, 490]
 	  ZOrder		  -2
-	  LibraryVersion	  "1.281"
+	  LibraryVersion	  "1.285"
 	  SourceBlock		  "simulink/Sources/Band-Limited\nWhite Noise"
 	  SourceType		  "Band-Limited White Noise."
+	  ContentPreviewEnabled	  off
 	  Cov			  "NoiseCov"
 	  Ts			  "0.1"
 	  seed			  "NoiseSeed"
@@ -2145,9 +2377,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
 	      ZOrder		      -1
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -2160,9 +2393,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
 	      ZOrder		      -2
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -2188,6 +2422,7 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
+	      ZOrder		      1
 	      SrcBlock		      "Ramp"
 	      SrcPort		      1
 	      Points		      [35, 0]
@@ -2195,12 +2430,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      2
 	      SrcBlock		      "Sum3"
 	      SrcPort		      1
 	      DstBlock		      "f"
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      3
 	      SrcBlock		      "Ramp1"
 	      SrcPort		      1
 	      Points		      [40, 0]
@@ -2277,9 +2514,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
 	      ZOrder		      -1
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -2292,9 +2530,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
 	      ZOrder		      -2
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -2320,6 +2559,7 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
+	      ZOrder		      1
 	      SrcBlock		      "Ramp"
 	      SrcPort		      1
 	      Points		      [35, 0]
@@ -2327,12 +2567,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      2
 	      SrcBlock		      "Sum3"
 	      SrcPort		      1
 	      DstBlock		      "f"
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      3
 	      SrcBlock		      "Ramp1"
 	      SrcPort		      1
 	      Points		      [40, 0]
@@ -2409,9 +2651,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
 	      ZOrder		      -1
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -2424,9 +2667,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
 	      ZOrder		      -2
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -2452,6 +2696,7 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
+	      ZOrder		      1
 	      SrcBlock		      "Ramp1"
 	      SrcPort		      1
 	      Points		      [40, 0]
@@ -2459,12 +2704,14 @@ Model {
 	      DstPort		      2
 	    }
 	    Line {
+	      ZOrder		      2
 	      SrcBlock		      "Sum3"
 	      SrcPort		      1
 	      DstBlock		      "f"
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      3
 	      SrcBlock		      "Ramp"
 	      SrcPort		      1
 	      Points		      [35, 0]
@@ -2541,9 +2788,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
 	      ZOrder		      -1
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -2556,9 +2804,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
 	      ZOrder		      -2
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -2584,6 +2833,7 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
+	      ZOrder		      1
 	      SrcBlock		      "Ramp1"
 	      SrcPort		      1
 	      Points		      [40, 0]
@@ -2591,12 +2841,14 @@ Model {
 	      DstPort		      2
 	    }
 	    Line {
+	      ZOrder		      2
 	      SrcBlock		      "Sum3"
 	      SrcPort		      1
 	      DstBlock		      "f"
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      3
 	      SrcBlock		      "Ramp"
 	      SrcPort		      1
 	      Points		      [35, 0]
@@ -2673,9 +2925,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
 	      ZOrder		      -1
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -2688,9 +2941,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
 	      ZOrder		      -2
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -2716,6 +2970,7 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
+	      ZOrder		      1
 	      SrcBlock		      "Ramp"
 	      SrcPort		      1
 	      Points		      [35, 0]
@@ -2723,12 +2978,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      2
 	      SrcBlock		      "Sum3"
 	      SrcPort		      1
 	      DstBlock		      "f"
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      3
 	      SrcBlock		      "Ramp1"
 	      SrcPort		      1
 	      Points		      [40, 0]
@@ -2805,9 +3062,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
 	      ZOrder		      -1
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -2820,9 +3078,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
 	      ZOrder		      -2
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -2848,6 +3107,7 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
+	      ZOrder		      1
 	      SrcBlock		      "Ramp1"
 	      SrcPort		      1
 	      Points		      [40, 0]
@@ -2855,12 +3115,14 @@ Model {
 	      DstPort		      2
 	    }
 	    Line {
+	      ZOrder		      2
 	      SrcBlock		      "Sum3"
 	      SrcPort		      1
 	      DstBlock		      "f"
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      3
 	      SrcBlock		      "Ramp"
 	      SrcPort		      1
 	      Points		      [35, 0]
@@ -2937,9 +3199,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
 	      ZOrder		      -1
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -2952,9 +3215,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
 	      ZOrder		      -2
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -2980,6 +3244,7 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
+	      ZOrder		      1
 	      SrcBlock		      "Ramp"
 	      SrcPort		      1
 	      Points		      [35, 0]
@@ -2987,12 +3252,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      2
 	      SrcBlock		      "Sum3"
 	      SrcPort		      1
 	      DstBlock		      "f"
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      3
 	      SrcBlock		      "Ramp1"
 	      SrcPort		      1
 	      Points		      [40, 0]
@@ -3069,9 +3336,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
 	      ZOrder		      -1
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -3084,9 +3352,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
 	      ZOrder		      -2
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -3112,6 +3381,7 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
+	      ZOrder		      1
 	      SrcBlock		      "Ramp1"
 	      SrcPort		      1
 	      Points		      [40, 0]
@@ -3119,12 +3389,14 @@ Model {
 	      DstPort		      2
 	    }
 	    Line {
+	      ZOrder		      2
 	      SrcBlock		      "Sum3"
 	      SrcPort		      1
 	      DstBlock		      "f"
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      3
 	      SrcBlock		      "Ramp"
 	      SrcPort		      1
 	      Points		      [35, 0]
@@ -3201,9 +3473,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
 	      ZOrder		      -1
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -3216,9 +3489,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
 	      ZOrder		      -2
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -3244,6 +3518,7 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
+	      ZOrder		      1
 	      SrcBlock		      "Ramp"
 	      SrcPort		      1
 	      Points		      [35, 0]
@@ -3251,12 +3526,14 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      2
 	      SrcBlock		      "Sum3"
 	      SrcPort		      1
 	      DstBlock		      "f"
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      3
 	      SrcBlock		      "Ramp1"
 	      SrcPort		      1
 	      Points		      [40, 0]
@@ -3333,9 +3610,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [55, 45, 85, 75]
 	      ZOrder		      -1
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep"
 	      X0		      "0"
@@ -3348,9 +3626,10 @@ Model {
 	      Ports		      [0, 1]
 	      Position		      [75, 100, 105, 130]
 	      ZOrder		      -2
-	      LibraryVersion	      "1.281"
+	      LibraryVersion	      "1.285"
 	      SourceBlock	      "simulink/Sources/Ramp"
 	      SourceType	      "Ramp"
+	      ContentPreviewEnabled   off
 	      slope		      "fault/traise"
 	      start		      "tstep+traise"
 	      X0		      "0"
@@ -3376,6 +3655,7 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
+	      ZOrder		      1
 	      SrcBlock		      "Ramp1"
 	      SrcPort		      1
 	      Points		      [40, 0]
@@ -3383,12 +3663,14 @@ Model {
 	      DstPort		      2
 	    }
 	    Line {
+	      ZOrder		      2
 	      SrcBlock		      "Sum3"
 	      SrcPort		      1
 	      DstBlock		      "f"
 	      DstPort		      1
 	    }
 	    Line {
+	      ZOrder		      3
 	      SrcBlock		      "Ramp"
 	      SrcPort		      1
 	      Points		      [35, 0]
@@ -3452,6 +3734,7 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
+	  ZOrder		  1
 	  SrcBlock		  "Rampfel fc1"
 	  SrcPort		  1
 	  Points		  [10, 0; 0, 35; 140, 0]
@@ -3459,6 +3742,7 @@ Model {
 	  DstPort		  9
 	}
 	Line {
+	  ZOrder		  2
 	  SrcBlock		  "Rampfel fc2"
 	  SrcPort		  1
 	  Points		  [15, 0; 0, 55]
@@ -3466,6 +3750,7 @@ Model {
 	  DstPort		  10
 	}
 	Line {
+	  ZOrder		  3
 	  SrcBlock		  "Rampfel fa"
 	  SrcPort		  1
 	  Points		  [10, 0; 0, -30]
@@ -3473,6 +3758,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  4
 	  SrcBlock		  "Rampfel fh1"
 	  SrcPort		  1
 	  Points		  [5, 0; 0, -25; 145, 0]
@@ -3480,6 +3766,7 @@ Model {
 	  DstPort		  2
 	}
 	Line {
+	  ZOrder		  5
 	  SrcBlock		  "Rampfel fh2"
 	  SrcPort		  1
 	  Points		  [5, 0; 0, -20; 140, 0]
@@ -3487,6 +3774,7 @@ Model {
 	  DstPort		  3
 	}
 	Line {
+	  ZOrder		  6
 	  SrcBlock		  "Rampfel ff1"
 	  SrcPort		  1
 	  Points		  [10, 0; 0, 35; 140, 0]
@@ -3494,6 +3782,7 @@ Model {
 	  DstPort		  4
 	}
 	Line {
+	  ZOrder		  7
 	  SrcBlock		  "Rampfel ff2"
 	  SrcPort		  1
 	  Points		  [10, 0; 0, 75]
@@ -3501,6 +3790,7 @@ Model {
 	  DstPort		  5
 	}
 	Line {
+	  ZOrder		  8
 	  SrcBlock		  "Rampfel fl1"
 	  SrcPort		  1
 	  Points		  [15, 0; 0, -20; 140, 0]
@@ -3508,6 +3798,7 @@ Model {
 	  DstPort		  6
 	}
 	Line {
+	  ZOrder		  9
 	  SrcBlock		  "Rampfel fl2"
 	  SrcPort		  1
 	  Points		  [0, 5; 15, 0; 0, 25; 140, 0]
@@ -3515,6 +3806,7 @@ Model {
 	  DstPort		  7
 	}
 	Line {
+	  ZOrder		  10
 	  SrcBlock		  "Rampfel fl3"
 	  SrcPort		  1
 	  Points		  [0, 5; 20, 0; 0, 25]
@@ -3522,41 +3814,49 @@ Model {
 	  DstPort		  8
 	}
 	Line {
+	  ZOrder		  11
 	  SrcBlock		  "Mux1"
 	  SrcPort		  1
 	  Points		  [20, 0]
 	  Branch {
+	    ZOrder		    12
 	    Points		    [0, 310]
 	    DstBlock		    "To Workspace4"
 	    DstPort		    1
 	  }
 	  Branch {
+	    ZOrder		    13
 	    Points		    [0, -15]
 	    DstBlock		    "System of water tanks"
 	    DstPort		    2
 	  }
 	}
 	Line {
+	  ZOrder		  14
 	  SrcBlock		  "Mux"
 	  SrcPort		  1
 	  Points		  [145, 0]
 	  Branch {
+	    ZOrder		    15
 	    DstBlock		    "Sum3"
 	    DstPort		    1
 	  }
 	  Branch {
+	    ZOrder		    16
 	    Points		    [0, -60]
 	    DstBlock		    "To Workspace6"
 	    DstPort		    1
 	  }
 	}
 	Line {
+	  ZOrder		  17
 	  SrcBlock		  "Sum3"
 	  SrcPort		  1
 	  DstBlock		  "y_meas"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  18
 	  SrcBlock		  "Constant"
 	  SrcPort		  1
 	  Points		  [35, 0; 0, -25]
@@ -3564,6 +3864,7 @@ Model {
 	  DstPort		  2
 	}
 	Line {
+	  ZOrder		  19
 	  SrcBlock		  "Band-Limited\nWhite Noise2"
 	  SrcPort		  1
 	  Points		  [45, 0]
@@ -3571,6 +3872,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  20
 	  SrcBlock		  "Product"
 	  SrcPort		  1
 	  Points		  [25, 0]
@@ -3578,6 +3880,7 @@ Model {
 	  DstPort		  2
 	}
 	Line {
+	  ZOrder		  21
 	  SrcBlock		  "System of water tanks"
 	  SrcPort		  1
 	  Points		  [55, 0; 0, -275]
@@ -3585,6 +3888,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  22
 	  SrcBlock		  "System of water tanks"
 	  SrcPort		  2
 	  Points		  [95, 0; 0, -95]
@@ -3592,6 +3896,7 @@ Model {
 	  DstPort		  2
 	}
 	Line {
+	  ZOrder		  23
 	  SrcBlock		  "System of water tanks"
 	  SrcPort		  3
 	  Points		  [95, 0; 0, 85]
@@ -3599,6 +3904,7 @@ Model {
 	  DstPort		  3
 	}
 	Line {
+	  ZOrder		  24
 	  SrcBlock		  "System of water tanks"
 	  SrcPort		  4
 	  Points		  [55, 0; 0, 265]
@@ -3606,6 +3912,7 @@ Model {
 	  DstPort		  4
 	}
 	Line {
+	  ZOrder		  25
 	  SrcBlock		  "u"
 	  SrcPort		  1
 	  Points		  [300, 0; 0, 375]
@@ -3615,47 +3922,74 @@ Model {
 	Annotation {
 	  SID			  "143"
 	  Name			  "aktuatorfel ( fa )"
-	  Position		  [416, 134]
+	  Position		  [416, 134, 416, 134]
+	  AutoSize		  on
+	  WordWrap		  off
+	  ZOrder		  -1
 	}
 	Annotation {
 	  SID			  "144"
 	  Name			  "Sensorfel höjd wt1 ( fh1)"
-	  Position		  [373, 187]
+	  Position		  [373, 187, 373, 187]
+	  AutoSize		  on
+	  WordWrap		  off
+	  ZOrder		  -2
 	}
 	Annotation {
 	  SID			  "145"
 	  Name			  "Sensorfel höjd wt2 ( fh2)"
-	  Position		  [394, 238]
+	  Position		  [394, 238, 394, 238]
+	  AutoSize		  on
+	  WordWrap		  off
+	  ZOrder		  -3
 	}
 	Annotation {
 	  SID			  "146"
 	  Name			  "Sensorfel FS2 ( ff2 )"
-	  Position		  [389, 348]
+	  Position		  [389, 348, 389, 348]
+	  AutoSize		  on
+	  WordWrap		  off
+	  ZOrder		  -4
 	}
 	Annotation {
 	  SID			  "147"
 	  Name			  " "
-	  Position		  [368, 338]
+	  Position		  [368, 338, 368, 338]
+	  AutoSize		  on
+	  WordWrap		  off
+	  ZOrder		  -5
 	}
 	Annotation {
 	  SID			  "148"
 	  Name			  "y1"
-	  Position		  [700, 154]
+	  Position		  [700, 154, 700, 154]
+	  AutoSize		  on
+	  WordWrap		  off
+	  ZOrder		  -6
 	}
 	Annotation {
 	  SID			  "149"
 	  Name			  "y2"
-	  Position		  [684, 328]
+	  Position		  [684, 328, 684, 328]
+	  AutoSize		  on
+	  WordWrap		  off
+	  ZOrder		  -7
 	}
 	Annotation {
 	  SID			  "150"
 	  Name			  "y4"
-	  Position		  [692, 668]
+	  Position		  [692, 668, 692, 668]
+	  AutoSize		  on
+	  WordWrap		  off
+	  ZOrder		  -8
 	}
 	Annotation {
 	  SID			  "151"
 	  Name			  "y3"
-	  Position		  [704, 506]
+	  Position		  [704, 506, 704, 506]
+	  AutoSize		  on
+	  WordWrap		  off
+	  ZOrder		  -9
 	}
       }
     }
@@ -3790,12 +4124,14 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
+	  ZOrder		  1
 	  SrcBlock		  "Relational\nOperator"
 	  SrcPort		  1
 	  DstBlock		  "d"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  2
 	  SrcBlock		  "Constant"
 	  SrcPort		  1
 	  Points		  [5, 0]
@@ -3803,12 +4139,14 @@ Model {
 	  DstPort		  2
 	}
 	Line {
+	  ZOrder		  3
 	  SrcBlock		  "Square"
 	  SrcPort		  1
 	  DstBlock		  "Relational\nOperator"
 	  DstPort		  1
 	}
 	Line {
+	  ZOrder		  4
 	  SrcBlock		  "r"
 	  SrcPort		  1
 	  DstBlock		  "Square"
@@ -3817,71 +4155,86 @@ Model {
       }
     }
     Line {
+      ZOrder		      1
       SrcBlock		      "Treshold"
       SrcPort		      1
       DstBlock		      "To Workspace5"
       DstPort		      1
     }
     Line {
+      ZOrder		      2
       SrcBlock		      "Diagnosis system"
       SrcPort		      1
       Points		      [45, 0]
       Branch {
+	ZOrder			3
 	DstBlock		"Treshold"
 	DstPort			1
       }
       Branch {
+	ZOrder			4
 	DstBlock		"To Workspace3"
 	DstPort			1
       }
     }
     Line {
+      ZOrder		      5
       SrcBlock		      "From \nWorkspace"
       SrcPort		      1
       DstBlock		      "Controller"
       DstPort		      1
     }
     Line {
+      ZOrder		      6
       SrcBlock		      "Controller"
       SrcPort		      1
       Points		      [15, 0]
       Branch {
+	ZOrder			7
 	Points			[0, 140]
 	DstBlock		"Diagnosis system"
 	DstPort			2
       }
       Branch {
+	ZOrder			8
 	Points			[0, -55]
 	DstBlock		"To Workspace2"
 	DstPort			1
       }
       Branch {
+	ZOrder			9
 	DstBlock		"Nonlinear model\nwith faults"
 	DstPort			1
       }
     }
     Line {
+      ZOrder		      10
       SrcBlock		      "Clock"
       SrcPort		      1
       DstBlock		      "To Workspace6"
       DstPort		      1
     }
     Line {
+      ZOrder		      11
       SrcBlock		      "Nonlinear model\nwith faults"
       SrcPort		      1
       Points		      [25, 0]
       Branch {
+	ZOrder			12
 	DstBlock		"To Workspace1"
 	DstPort			1
       }
       Branch {
+	ZOrder			13
 	Points			[0, 70]
 	Branch {
+	  ZOrder		  14
 	  Points		  [-265, 0]
 	  DstBlock		  "Controller"
 	  DstPort		  2
 	}
 	Branch {
+	  ZOrder		  15
 	  Points		  [0, 10; -170, 0]
 	  DstBlock		  "Diagnosis system"
 	  DstPort		  1
