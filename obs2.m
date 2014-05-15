@@ -74,7 +74,7 @@ y2    = block.InputPort(1).Data(3);
 x1hat = block.ContStates.Data(1);
 x2hat = block.ContStates.Data(2);
 
-dx1hat = d(1)*u-d(2)*sqrt(x1hat)+K2(1)*(y2-x2hat);
-dx2hat = d(3)*sqrt(x1hat)-d(4)*sqrt(x2hat)+K2(2)*(y2-x2hat);
+dx1hat = d(1)*u-d(2)*sqrt(max(0,x1hat))+K2(1)*(y2-x2hat);
+dx2hat = d(3)*sqrt(max(0,x1hat))-d(4)*sqrt(max(0,x2hat))+K2(2)*(y2-x2hat);
 
 block.Derivatives.Data = [dx1hat dx2hat];

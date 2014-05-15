@@ -58,7 +58,7 @@ function Output(block)
   y3    = block.InputPort(1).Data(4);
   d     = block.DialogPrm(1).Data.d;
 
-  r     = y3-d(5)*sqrt(x1hat);
+  r     = y3-d(5)*sqrt(max(0,x1hat));
   block.OutputPort(1).Data = r;
   
 %endfunction
@@ -74,6 +74,6 @@ u     = block.InputPort(1).Data(1);
 y3    = block.InputPort(1).Data(4);
 x1hat = block.ContStates.Data;
 
-dx1hat = d(1)*u-d(2)*sqrt(x1hat)+K3*(y3-d(5)*sqrt(x1hat));
+dx1hat = d(1)*u-d(2)*sqrt(max(0,x1hat))+K3*(y3-d(5)*sqrt(max(0,x1hat)));
 
 block.Derivatives.Data = dx1hat;

@@ -57,9 +57,11 @@ function InitConditions(block)
 %  Definiera utsignalsekvationen
 %  ===============================================================
 function Output(block)
-  w  = block.ContStates.Data;
+  %w  = block.ContStates.Data;
   y1 = block.InputPort(1).Data(2);
-  r  = w+y1;
+  y3 = block.InputPort(1).Data(4);
+  d  = block.DialogPrm(1).Data.d;
+  r  = y1 - (y3/d(5))^2;
   
   block.OutputPort(1).Data = r;
   
@@ -74,8 +76,8 @@ d    = block.DialogPrm(1).Data.d;
 
 u  = block.InputPort(1).Data(1);
 y1 = block.InputPort(1).Data(2);
-w  = block.ContStates.Data;
+%w  = block.ContStates.Data;
 
-dw = -alfa*(w+y1)-d(1)*u+d(2)*sqrt(max(0,y1));
+%dw = -alfa*(w+y1)-d(1)*u+d(2)*sqrt(max(0,y1));
 
-block.Derivatives.Data = dw;
+block.Derivatives.Data = 0;

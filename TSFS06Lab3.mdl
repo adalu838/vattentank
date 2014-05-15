@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.318"
+    ComputedModelVersion    "1.323"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -52,11 +52,11 @@ Model {
 	$ObjectID		5
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
-	ViewObjType		"SimulinkSubsys"
-	LoadSaveID		"17"
-	Extents			[834.0, 486.0]
+	ViewObjType		"SimulinkTopLevel"
+	LoadSaveID		"0"
+	Extents			[834.0, 484.0]
 	ZoomFactor		[1.0]
-	Offset			[-61.75, -4.75]
+	Offset			[0.0, 0.0]
       }
     }
   }
@@ -66,9 +66,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "adalu838"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu May 15 13:45:34 2014"
-  RTWModifiedTimeStamp	  322062329
-  ModelVersionFormat	  "1.%<AutoIncrement:318>"
+  LastModifiedDate	  "Thu May 15 15:54:47 2014"
+  RTWModifiedTimeStamp	  322070084
+  ModelVersionFormat	  "1.%<AutoIncrement:323>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -194,8 +194,8 @@ Model {
 	  SolverMode		  "SingleTasking"
 	  EnableConcurrentExecution off
 	  ConcurrentTasks	  off
-	  Solver		  "ode3"
-	  SolverName		  "ode3"
+	  Solver		  "ode23tb"
+	  SolverName		  "ode23tb"
 	  SolverJacobianMethodControl "auto"
 	  ShapePreserveControl	  "DisableAll"
 	  ZeroCrossControl	  "UseLocalSettings"
@@ -678,7 +678,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition     [ 360, 285, 1240, 915 ] 
+      ConfigPrmDlgPosition     [ 0, 0, 1070, 658 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -1001,7 +1001,7 @@ Model {
   System {
     Name		    "TSFS06Lab3"
     Location		    [182, 167, 1056, 824]
-    Open		    off
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -1014,7 +1014,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "160"
+    SIDHighWatermark	    "164"
     Block {
       BlockType		      Clock
       Name		      "Clock"
@@ -1297,7 +1297,7 @@ Model {
 	  System {
 	    Name		    "Consistency Relations"
 	    Location		    [182, 167, 1056, 824]
-	    Open		    on
+	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1550,7 +1550,7 @@ Model {
 	      Position		      [460, 138, 500, 172]
 	      ZOrder		      2
 	      ShowName		      off
-	      Expr		      "u(7)-d3*sqrt(u(2))+d4*sqrt(u(3))"
+	      Expr		      "u(7) - d3*sqrt(u(2)) + d4*sqrt(u(3))"
 	    }
 	    Block {
 	      BlockType		      ZeroPole
@@ -1757,7 +1757,6 @@ Model {
 	      ZOrder		      15
 	      SrcBlock		      "LP-filter"
 	      SrcPort		      1
-	      Points		      [45, 0]
 	      DstBlock		      "Mux"
 	      DstPort		      1
 	    }
@@ -1765,7 +1764,6 @@ Model {
 	      ZOrder		      16
 	      SrcBlock		      "LP-filter1"
 	      SrcPort		      1
-	      Points		      [45, 0]
 	      DstBlock		      "Mux"
 	      DstPort		      2
 	    }
@@ -1773,7 +1771,6 @@ Model {
 	      ZOrder		      17
 	      SrcBlock		      "M-file implementation\nof consistency relation\nwith dynamics"
 	      SrcPort		      1
-	      Points		      [90, 0]
 	      DstBlock		      "Mux"
 	      DstPort		      3
 	    }
@@ -1781,7 +1778,6 @@ Model {
 	      ZOrder		      18
 	      SrcBlock		      "M-file implementation\nof consistency relation\nwith dynamics1"
 	      SrcPort		      1
-	      Points		      [90, 0]
 	      DstBlock		      "Mux"
 	      DstPort		      4
 	    }
@@ -2186,28 +2182,28 @@ Model {
 	    Type		    "edit"
 	    Name		    "fa"
 	    Prompt		    "Actuator faults fa"
-	    Value		    "0"
+	    Value		    "faults(1)"
 	  }
 	  Object {
 	    $ObjectID		    23
 	    Type		    "edit"
 	    Name		    "fs"
 	    Prompt		    "SensorFaults fs=[fh1 fh2 ff1 ff2]"
-	    Value		    "[0 0 0 0]"
+	    Value		    "faults(2:5)"
 	  }
 	  Object {
 	    $ObjectID		    24
 	    Type		    "edit"
 	    Name		    "fl"
 	    Prompt		    "Leaks fl=[fl1 fl2 fl3]"
-	    Value		    "[0 0 0]"
+	    Value		    "faults(6:8)"
 	  }
 	  Object {
 	    $ObjectID		    25
 	    Type		    "edit"
 	    Name		    "fc"
 	    Prompt		    "Clogging fc=[fc1 fc2]"
-	    Value		    "[0 0]"
+	    Value		    "faults(9:10)"
 	  }
 	  Object {
 	    $ObjectID		    26
@@ -4069,7 +4065,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Treshold"
-	Location		[745, 289, 1333, 858]
+	Location		[182, 167, 1056, 824]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
