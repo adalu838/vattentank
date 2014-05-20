@@ -39,7 +39,7 @@ Gsys=tanklinj(4, d);
 A1  = Gsys.a(1,1);
 C1  = Gsys.c(1,1);
 
-P1  = [-1]; % Placering av polerna
+P1  = [-0.5]; % Placering av polerna
 K1 = obsgain(A1,C1,P1);
 
 % Spara parametrarna som skickas in till observatören  
@@ -65,7 +65,7 @@ obs2params.d  = d;      % Modellparametrar
 A3  = Gsys.a(1,1);
 C3  = Gsys.c(3,1);
 
-P3  = [-2]; % Placering av polerna
+P3  = [-0.5]; % Placering av polerna
 K3 = obsgain(A3,C3,P3);
 
 % Spara parametrarna som skickas in till observatören  
@@ -78,7 +78,7 @@ obs3params.d  = d;      % Modellparametrar
 A4  = Gsys.a(1:2,1:2);
 C4  = Gsys.c(4,:);
 
-P4  = [-1 -2]; % Placering av polerna
+P4  = [-0.15 -0.2]; % Placering av polerna
 K4 = obsgain(A4,C4,P4);
 
 % Spara parametrarna som skickas in till observatören  
@@ -93,23 +93,38 @@ obs4params.d  = d;      % Modellparametrar
 
 % Sätt parametrar för konsistensrelation
 c1params.x0   = -h1Init; % Initialvärde för residualgeneratorns tillstånd
-c1params.alfa = 2;       % Placering av polen i -alfa
+c1params.alfa = 0.2;       % Placering av polen i -alfa
 c1params.d    = d;       % Modellparametrar
 
 % Sätt parametrar för konsistensrelation
 c2params.x0   = -h2Init; % Initialvärde för residualgeneratorns tillstånd
-c2params.alfa = 2;       % Placering av polen i -alfa
+c2params.alfa = 0.2;       % Placering av polen i -alfa
 c2params.d    = d;       % Modellparametrar
 
 % Sätt parametrar för konsistensrelation
 c3params.x0   = -h1Init; % Initialvärde för residualgeneratorns tillstånd
-c3params.alfa = 2;       % Placering av polen i -alfa
+c3params.alfa = 0.4;       % Placering av polen i -alfa
 c3params.d    = d;       % Modellparametrar
 
 % Sätt parametrar för konsistensrelation
-c4params.x0   = -h1Init; % Initialvärde för residualgeneratorns tillstånd
-c4params.alfa = 2;       % Placering av polen i -alfa
+c4params.x0   = -h2Init; % Initialvärde för residualgeneratorns tillstånd
+c4params.alfa = 0.8;       % Placering av polen i -alfa
 c4params.d    = d;       % Modellparametrar
+
+% Sätt parametrar för konsistensrelation
+c5params.x0   = -h1Init; % Initialvärde för residualgeneratorns tillstånd
+c5params.alfa = 0.1;       % Placering av polen i -alfa
+c5params.d    = d;       % Modellparametrar
+
+% Sätt parametrar för konsistensrelation
+c6params.x0   = -h2Init; % Initialvärde för residualgeneratorns tillstånd
+c6params.alfa = 0.2;       % Placering av polen i -alfa
+c6params.d    = d;       % Modellparametrar
+
+% Sätt parametrar för konsistensrelation
+c7params.x0   = -h2Init; % Initialvärde för residualgeneratorns tillstånd
+c7params.alfa = 0.2;       % Placering av polen i -alfa
+c7params.d    = d;       % Modellparametrar
 
 %% ==================================================
 %  Tröskelsättning
@@ -117,10 +132,19 @@ c4params.d    = d;       % Modellparametrar
 
 pfa = 0.001;
 
-my = mean(res);
-std_res = std(res);
+if  exist('res','var')
+    my = mean(res);
+    std_res = std(res);
+    Jnorm=norminv(1-pfa/2,my,std_res); % Default är alla trösklar satta till 1
+else
+    faults = [0 0 0 0 0 0 0 0 0 0];
+    Jnorm=ones(1,13);
+    sim('TSFS06Lab3');
+end
 
-Jnorm=norminv(1-pfa/2,my,std_res) % Default är alla trösklar satta till 1
+% Jnorm(11) = Jnorm(11)*.85;
+% Jnorm(7) = Jnorm(7)*.7;
+% Jnorm(5) = Jnorm(5)*1.3;
 
 %% ==================================================
 %  Simulera systemet
@@ -128,12 +152,7 @@ Jnorm=norminv(1-pfa/2,my,std_res) % Default är alla trösklar satta till 1
 %  Simulation->Start i Simulink fönstret 
 %  eller exekvera nedanstående rad
 %  ==================================================
-
-%Jnorm=ones(1,10);
-
-sim('TSFS06Lab3');
-
-%% ==================================================
+% ==================================================
 %  Definiera beslutsstrukturen via s0 och s1
 %  Felfria fallet NF ska stå först
 %  ==================================================
@@ -155,17 +174,23 @@ s1(7,[2 3 10]) = 1;
 s1(8,[3 4 7 8 10 11]) = 1;
 s1(9,[3 5 7 10]) = 1;
 s1(10,[4 6 9 11]) = 1;
+s1(11,[2 3 5 7]) = 1;
+s1(12,[4 7 6 8 9 10]) = 1;
+s1(13,[4 5 8 11]) = 1;
+
+hej = [1 2 4 5 8 9 10];
+
+s1ny = s1(:,hej);
 
 %s1 = zeros(3,7); %förenklad variant
 
 %% ==================================================
 %  Beräkna diagnoser under ett enkelfelsantagande
 %  ==================================================
-
-faults = [0 0 0 1 0 0 0 0 0 0];
+%         fa' fh1 fh2' ff1' ff2 fl1 fl2' fl3' fc1' fc2
+faults = [ 0   0   0    0   0    0   0   0  0   0 ];
 sim('TSFS06Lab3');
 [S,alarm] = decisioncalc(T,s0,s1);
-s1
 
 % ==================================================
 %  Plotta resultatet
@@ -178,7 +203,8 @@ figure(2)
 plot( tut, alarm )
 figure(3)
 plot( tut, res )
-legend('Obs1','Obs2','Obs3','Obs4','Func1','Func2','Constrel1','Constrel2','Constrel3','Constrel4');
+legend('Obs1','Obs2','Obs3','Obs4','Func1','Func2','Constrel1', ...
+       'Constrel2','Constrel3','Constrel4','Constrel5','Constrel6','consrel7');
 figure(4)
 plot( tut,T )
 
@@ -191,14 +217,9 @@ name={'NF', 'Fa', 'Fh1', 'Fh2', 'Ff1', 'Ff2', 'Fl1', 'Fl2', 'Fl3',...
 
 % Plottar diagnosbeslutet för de olika felmoderna enligt S 
 % och namnger dem efter name.
-for n=1:length(name)
+for n=[1 2 4 5 8 9 10];%1:length(name)
   subplot(3,4,n)
   plot(tut,S(:,n))
   title(name{n})
   axis([min(tut) max(tut) -0.1 1.1])
 end
-
-%%
-close all
-
-plot(res)
